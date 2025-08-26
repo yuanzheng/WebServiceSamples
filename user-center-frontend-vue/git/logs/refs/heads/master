@@ -1,0 +1,17 @@
+0000000000000000000000000000000000000000 4ca6551373a8d5d7e7346bb7cd2ddf5e3581c47e Yuanzheng (Lucas) Song <song_yuanzheng@hotmail.com> 1753426261 -0600	commit (initial): init
+4ca6551373a8d5d7e7346bb7cd2ddf5e3581c47e 89b02cb04d64d2e9addde5d76b35347be42840e2 Yuanzheng (Lucas) Song <song_yuanzheng@hotmail.com> 1753487583 -0600	commit: Reset elint coding style check level to warning
+89b02cb04d64d2e9addde5d76b35347be42840e2 9f01ff8d552520ee0a0a487a4c279131e057bf89 Yuanzheng (Lucas) Song <song_yuanzheng@hotmail.com> 1753487827 -0600	commit: install Ant Design Vue - UI components lib and tested a button component
+9f01ff8d552520ee0a0a487a4c279131e057bf89 8ba57cbcf39061959f351f47758090a230e5b265 Yuanzheng (Lucas) Song <song_yuanzheng@hotmail.com> 1753538349 -0600	commit: Init a Global layout
+8ba57cbcf39061959f351f47758090a230e5b265 111069533f0be4fd603da7432cff4230ea17b107 Yuanzheng (Lucas) Song <song_yuanzheng@hotmail.com> 1753539440 -0600	commit: Choose a layout from Ant design vue
+111069533f0be4fd603da7432cff4230ea17b107 cd4d211b52386ab82b53f82053f5f2923e3aab52 Yuanzheng (Lucas) Song <song_yuanzheng@hotmail.com> 1753541552 -0600	commit: Implemented footer layout
+cd4d211b52386ab82b53f82053f5f2923e3aab52 908636cdd2b3517110e4a9fb6ef8aa925b0f5407 Yuanzheng (Lucas) Song <song_yuanzheng@hotmail.com> 1753663979 -0600	commit: Implemented header layout
+908636cdd2b3517110e4a9fb6ef8aa925b0f5407 90418375196b0fb9df70dee4fcf992f21bd60e5a Yuanzheng (Lucas) Song <song_yuanzheng@hotmail.com> 1753667683 -0600	commit: Optimized the Header's Menu items
+90418375196b0fb9df70dee4fcf992f21bd60e5a a4f6512f4a4ce070ed450318d19b50f952ec3a04 Yuanzheng (Lucas) Song <song_yuanzheng@hotmail.com> 1753741940 -0600	commit: Implenmented logo in the header
+a4f6512f4a4ce070ed450318d19b50f952ec3a04 9dd2531fbb06f5d20456fdae4d10f70e57f568a1 Yuanzheng (Lucas) Song <song_yuanzheng@hotmail.com> 1753762707 -0600	commit: Added a login button in the header
+9dd2531fbb06f5d20456fdae4d10f70e57f568a1 f5181f08ccb24492804c53cffdef9443b3124220 Yuanzheng (Lucas) Song <song_yuanzheng@hotmail.com> 1753763798 -0600	commit: Optimized the header, all elements are in one row
+f5181f08ccb24492804c53cffdef9443b3124220 fbb31d08ffc7359f784dfac3737810005cdd091c Yuanzheng (Lucas) Song <song_yuanzheng@hotmail.com> 1753780176 -0600	commit: Bind router for menue item events
+fbb31d08ffc7359f784dfac3737810005cdd091c df8c42adc45951e73a5983ee1b33205e83322618 Yuanzheng (Lucas) Song <song_yuanzheng@hotmail.com> 1753781566 -0600	commit: Solved the current select menu to match the current page
+df8c42adc45951e73a5983ee1b33205e83322618 9ae3ccd6535a5e5e94bfb7417b0daddc4765d5ee Yuanzheng (Lucas) Song <song_yuanzheng@hotmail.com> 1754448743 -0600	commit (amend): Solved the current select menu to match the current page
+9ae3ccd6535a5e5e94bfb7417b0daddc4765d5ee 243bb2b084093446d79d6d59d9717ab339bad023 Yuanzheng (Lucas) Song <song_yuanzheng@hotmail.com> 1755887360 -0600	commit: Added http request template, using axios and requests.ts and serve port
+243bb2b084093446d79d6d59d9717ab339bad023 c8d74c8f3444d9bc9846d34d48d618f439d59ea1 Yuanzheng (Lucas) Song <song_yuanzheng@hotmail.com> 1755887680 -0600	commit (amend): Added http request template, using axios and requests.ts and serve port
+c8d74c8f3444d9bc9846d34d48d618f439d59ea1 c8acc2227956ac75758902f0bac49228e897a089 Yuanzheng (Lucas) Song <song_yuanzheng@hotmail.com> 1756143022 -0600	commit: Added User apis
