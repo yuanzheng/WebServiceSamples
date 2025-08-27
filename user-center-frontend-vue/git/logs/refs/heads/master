@@ -15,3 +15,5 @@ df8c42adc45951e73a5983ee1b33205e83322618 9ae3ccd6535a5e5e94bfb7417b0daddc4765d5e
 9ae3ccd6535a5e5e94bfb7417b0daddc4765d5ee 243bb2b084093446d79d6d59d9717ab339bad023 Yuanzheng (Lucas) Song <song_yuanzheng@hotmail.com> 1755887360 -0600	commit: Added http request template, using axios and requests.ts and serve port
 243bb2b084093446d79d6d59d9717ab339bad023 c8d74c8f3444d9bc9846d34d48d618f439d59ea1 Yuanzheng (Lucas) Song <song_yuanzheng@hotmail.com> 1755887680 -0600	commit (amend): Added http request template, using axios and requests.ts and serve port
 c8d74c8f3444d9bc9846d34d48d618f439d59ea1 c8acc2227956ac75758902f0bac49228e897a089 Yuanzheng (Lucas) Song <song_yuanzheng@hotmail.com> 1756143022 -0600	commit: Added User apis
+c8acc2227956ac75758902f0bac49228e897a089 d6bb805c15d2c92264c0236c987e93da414eb03b Yuanzheng (Lucas) Song <song_yuanzheng@hotmail.com> 1756319093 -0600	commit: Adde global status for users
+d6bb805c15d2c92264c0236c987e93da414eb03b 8f4b599434ac338eddfdedcfe55b03ef10c40d5d Yuanzheng (Lucas) Song <song_yuanzheng@hotmail.com> 1756328331 -0600	commit: Updated login process to check if the user login or not
