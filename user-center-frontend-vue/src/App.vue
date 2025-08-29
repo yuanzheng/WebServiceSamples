@@ -11,5 +11,5 @@ import BasicLayout from "@/layouts/BasicLayout.vue";
 import { userLoginStore } from "@/stores/UserLoginStore";
 
 const loginUserStore = userLoginStore();
-loginUserStore.fetchLoginUser();
+//loginUserStore.fetchLoginUser();
 </script>

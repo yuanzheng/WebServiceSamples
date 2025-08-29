@@ -17,3 +17,5 @@ df8c42adc45951e73a5983ee1b33205e83322618 9ae3ccd6535a5e5e94bfb7417b0daddc4765d5e
 c8d74c8f3444d9bc9846d34d48d618f439d59ea1 c8acc2227956ac75758902f0bac49228e897a089 Yuanzheng (Lucas) Song <song_yuanzheng@hotmail.com> 1756143022 -0600	commit: Added User apis
 c8acc2227956ac75758902f0bac49228e897a089 d6bb805c15d2c92264c0236c987e93da414eb03b Yuanzheng (Lucas) Song <song_yuanzheng@hotmail.com> 1756319093 -0600	commit: Adde global status for users
 d6bb805c15d2c92264c0236c987e93da414eb03b 8f4b599434ac338eddfdedcfe55b03ef10c40d5d Yuanzheng (Lucas) Song <song_yuanzheng@hotmail.com> 1756328331 -0600	commit: Updated login process to check if the user login or not
+8f4b599434ac338eddfdedcfe55b03ef10c40d5d 596b924ba854c207962ec76ec6267bbfefe0635f Yuanzheng (Lucas) Song <song_yuanzheng@hotmail.com> 1756480683 -0600	commit: Init each pages and link to router, homepage, login page, register page and user manage page
+596b924ba854c207962ec76ec6267bbfefe0635f eb57b657f083186b8add493b5c4ffacac8ec663c Yuanzheng (Lucas) Song <song_yuanzheng@hotmail.com> 1756490766 -0600	commit: Implemented user login page
