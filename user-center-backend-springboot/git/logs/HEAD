@@ -3,3 +3,4 @@ df3f3f909b97eee24136fccb5439e5d298db4811 41ab21567d253648b579d4d35355e8c5a97fb51
 41ab21567d253648b579d4d35355e8c5a97fb51c e5ee133074f8ecbc4a94dddecc9c9a8235007620 Yuanzheng (Lucas) Song <song_yuanzheng@hotmail.com> 1756791469 -0600	commit (amend): Defined application yml file for DB connection and MyBatis-plus
 e5ee133074f8ecbc4a94dddecc9c9a8235007620 7a5eab5f516cfb71c1c31b08e71562d67792f61c Yuanzheng (Lucas) Song <song_yuanzheng@hotmail.com> 1756797888 -0600	commit (amend): Defined application yml file for DB connection and MyBatis-plus
 7a5eab5f516cfb71c1c31b08e71562d67792f61c e9649259a3089b76134e35c6fddf5d832b9c3e2f Yuanzheng (Lucas) Song <song_yuanzheng@hotmail.com> 1756797956 -0600	commit: Create a User entity and test
+e9649259a3089b76134e35c6fddf5d832b9c3e2f 2372c55a0118e711bdb1a144b038c8bfce8f6515 Yuanzheng (Lucas) Song <song_yuanzheng@hotmail.com> 1757136210 -0600	commit: Redo user entity by using MyBatis plus
