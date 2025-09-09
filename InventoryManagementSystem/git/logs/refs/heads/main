@@ -1,1 +1,5 @@
 0000000000000000000000000000000000000000 47b86825ee724330020195ba6a069f5dce021ab0 Yuanzheng (Lucas) Song <song_yuanzheng@hotmail.com> 1757203222 -0600	commit (initial): Init project with dependencies and properties
+47b86825ee724330020195ba6a069f5dce021ab0 19e45ea538484e7f216615012e9e84f290485fb4 Yuanzheng (Lucas) Song <song_yuanzheng@hotmail.com> 1757224524 -0600	commit: Add Entities
+19e45ea538484e7f216615012e9e84f290485fb4 386077912e0203517cd4c4ad3e16c580faf240b6 Yuanzheng (Lucas) Song <song_yuanzheng@hotmail.com> 1757347043 -0600	commit: Added DTOs(API interaction) for each entity
+386077912e0203517cd4c4ad3e16c580faf240b6 2aea2e458fe2f669cd4877b4633ec79694b18d9c Yuanzheng (Lucas) Song <song_yuanzheng@hotmail.com> 1757351984 -0600	commit: Added requests DTO
+2aea2e458fe2f669cd4877b4633ec79694b18d9c 5879f689b8bfaf1a58a5a16754eb559b2a08e554 Yuanzheng (Lucas) Song <song_yuanzheng@hotmail.com> 1757447188 -0600	commit: Added repositories for each entity
