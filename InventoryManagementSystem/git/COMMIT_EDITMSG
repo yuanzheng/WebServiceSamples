@@ -1,1 +1,1 @@
-Refactor Jwt features with more secure way to generate key and added exception handlers, and expire time
+Added JWT auth token verification
