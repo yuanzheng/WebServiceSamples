@@ -1,21 +1,29 @@
 package com.ytechtrade.inventorymanagementsystem.security;
 
+import com.fasterxml.jackson.databind.ObjectMapper;
 import com.ytechtrade.inventorymanagementsystem.services.CustomUserDetailsService;
+import io.jsonwebtoken.JwtException;
 import jakarta.servlet.FilterChain;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.MediaType;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.core.userdetails.UserDetails;
+import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.security.web.authentication.WebAuthenticationDetailsSource;
 import org.springframework.stereotype.Component;
 import org.springframework.util.StringUtils;
 import org.springframework.web.filter.OncePerRequestFilter;
 
 import java.io.IOException;
+import java.util.Date;
+import java.util.HashMap;
+import java.util.Map;
 
 @Component
 @Slf4j
@@ -24,6 +32,7 @@ public class AuthFilter extends OncePerRequestFilter {
 
     private final JwtUtils jwtUtils;
     private final CustomUserDetailsService customUserDetailsService;
+    private final ObjectMapper objectMapper;
 
     @Override
     protected void doFilterInternal(HttpServletRequest request, HttpServletResponse response, FilterChain filterChain)
@@ -32,18 +41,35 @@ public class AuthFilter extends OncePerRequestFilter {
         String token = getTokenFromRequest(request);
 
         if (token != null) {
-            String email = jwtUtils.getUsernameFromToken(token);
-            UserDetails userDetails = customUserDetailsService.loadUserByUsername(email);
+            try {
+                String email = jwtUtils.getUsernameFromToken(token);
+                if (!StringUtils.hasText(email)) {
+                    handleErrorResponse(response, HttpStatus.UNAUTHORIZED, "Authentication failed, invalid user account");
+                    return;
+                }
+                UserDetails userDetails = customUserDetailsService.loadUserByUsername(email);
 
-            if (StringUtils.hasText(email) && jwtUtils.isTokenValid(token, userDetails)) {
-                log.info("Valid Token, {}", email);
+                if (jwtUtils.isTokenValid(token, userDetails)) {
+                    log.info("Valid Token, {}", email);
 
-                UsernamePasswordAuthenticationToken authenticationToken = new UsernamePasswordAuthenticationToken(
-                        userDetails, null, userDetails.getAuthorities()
-                );
-                authenticationToken.setDetails(new WebAuthenticationDetailsSource().buildDetails(request));
-                SecurityContextHolder.getContext().setAuthentication(authenticationToken);
+                    UsernamePasswordAuthenticationToken authenticationToken = new UsernamePasswordAuthenticationToken(
+                            userDetails, null, userDetails.getAuthorities()
+                    );
+                    authenticationToken.setDetails(new WebAuthenticationDetailsSource().buildDetails(request));
+                    SecurityContextHolder.getContext().setAuthentication(authenticationToken);
+                } else {
+                    handleErrorResponse(response, HttpStatus.UNAUTHORIZED, "Authentication failed, invalid token");
+                    return;
+                }
+            } catch (JwtException | UsernameNotFoundException e) {
+                log.warn("Authentication failed: {}", e.getMessage());
+                handleErrorResponse(response, HttpStatus.UNAUTHORIZED, "Authentication failed");
+                return;
             }
+        } else {
+            log.warn("Authentication failed, JWT token missing");
+            handleErrorResponse(response, HttpStatus.UNAUTHORIZED, "Authentication failed, JWT token missing");
+            return;
         }
 
         try {
@@ -60,5 +86,19 @@ public class AuthFilter extends OncePerRequestFilter {
             return token.substring(7);
         }
         return null;
+    }
+
+    private void handleErrorResponse(HttpServletResponse response, HttpStatus status, String message) throws IOException {
+        response.setContentType(MediaType.APPLICATION_JSON_VALUE);
+        response.setStatus(status.value());
+
+        Map<String, Object> body = new HashMap<>();
+        body.put("status", status.value());
+        body.put("error", status.getReasonPhrase());
+        body.put("message", message);
+        body.put("timestamp", new Date());
+        body.put("path", ((HttpServletRequest) response).getRequestURI());
+
+        response.getWriter().write(objectMapper.writeValueAsString(body));
     }
 }

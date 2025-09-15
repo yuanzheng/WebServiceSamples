@@ -1,1 +1,1 @@
-Added JWT auth token verification
+Added security config for auth filter chain and other security policy
