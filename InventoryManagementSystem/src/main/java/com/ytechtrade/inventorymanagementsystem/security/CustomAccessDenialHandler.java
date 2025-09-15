@@ -1,4 +1,4 @@
-package com.ytechtrade.inventorymanagementsystem.security.config;
+package com.ytechtrade.inventorymanagementsystem.security;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.ytechtrade.inventorymanagementsystem.models.dtos.Response;

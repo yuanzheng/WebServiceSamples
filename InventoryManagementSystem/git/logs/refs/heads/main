@@ -13,3 +13,5 @@ a2ddc05e2fba65f71d8024f7fa47efb482b7de9c 30cf79da04d2e33fddea630323b7c40e5d6e5e3
 30cf79da04d2e33fddea630323b7c40e5d6e5e3b 79499196a5910fe1a033481c837e6427d302179a Yuanzheng (Lucas) Song <song_yuanzheng@hotmail.com> 1757698251 -0600	commit: Added JWT auth token verification
 79499196a5910fe1a033481c837e6427d302179a 7d57c5ffc2dd858a7c8b6d91fa84a846b4ede67f Yuanzheng (Lucas) Song <song_yuanzheng@hotmail.com> 1757805067 -0600	commit: Refatored JWT token verification
 7d57c5ffc2dd858a7c8b6d91fa84a846b4ede67f f056f8d9b5c9b63c479815fa9605f153adc3521f Yuanzheng (Lucas) Song <song_yuanzheng@hotmail.com> 1757952159 -0600	commit: Added security config for auth filter chain and other security policy
+f056f8d9b5c9b63c479815fa9605f153adc3521f f5c6897dc1d822fd537004b2d892dc0512b7d5d3 Yuanzheng (Lucas) Song <song_yuanzheng@hotmail.com> 1757956017 -0600	commit: Added cross region config
+f5c6897dc1d822fd537004b2d892dc0512b7d5d3 d370d9857d0ddf44a05f746cc67c5ca9e040eaa8 Yuanzheng (Lucas) Song <song_yuanzheng@hotmail.com> 1757956103 -0600	commit: Refactored some classes location in the project, like security config
