@@ -15,3 +15,7 @@ a2ddc05e2fba65f71d8024f7fa47efb482b7de9c 30cf79da04d2e33fddea630323b7c40e5d6e5e3
 7d57c5ffc2dd858a7c8b6d91fa84a846b4ede67f f056f8d9b5c9b63c479815fa9605f153adc3521f Yuanzheng (Lucas) Song <song_yuanzheng@hotmail.com> 1757952159 -0600	commit: Added security config for auth filter chain and other security policy
 f056f8d9b5c9b63c479815fa9605f153adc3521f f5c6897dc1d822fd537004b2d892dc0512b7d5d3 Yuanzheng (Lucas) Song <song_yuanzheng@hotmail.com> 1757956017 -0600	commit: Added cross region config
 f5c6897dc1d822fd537004b2d892dc0512b7d5d3 d370d9857d0ddf44a05f746cc67c5ca9e040eaa8 Yuanzheng (Lucas) Song <song_yuanzheng@hotmail.com> 1757956103 -0600	commit: Refactored some classes location in the project, like security config
+d370d9857d0ddf44a05f746cc67c5ca9e040eaa8 0b0c0aae32bbc2b8b98bcba4a40f2f420d57d3bf Yuanzheng (Lucas) Song <song_yuanzheng@hotmail.com> 1757997283 -0600	commit: Added user services and user controller
+0b0c0aae32bbc2b8b98bcba4a40f2f420d57d3bf a7e3ffa67cb6250cd97be471cccac0c7f02fc1ac Yuanzheng (Lucas) Song <song_yuanzheng@hotmail.com> 1757998055 -0600	commit: Fixed jwt valuable name miss spelling issue
+a7e3ffa67cb6250cd97be471cccac0c7f02fc1ac 9cca71975ed2b4de1bf0e123f873879b1c55e533 Yuanzheng (Lucas) Song <song_yuanzheng@hotmail.com> 1758003531 -0600	commit: Refactored AuthFilter to handle the situation like non token and permit all API call
+9cca71975ed2b4de1bf0e123f873879b1c55e533 9cca71975ed2b4de1bf0e123f873879b1c55e533 Yuanzheng (Lucas) Song <song_yuanzheng@hotmail.com> 1758003556 -0600	reset: moving to HEAD

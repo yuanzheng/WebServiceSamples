@@ -1,1 +1,1 @@
-Refactored some classes location in the project, like security config
+Refactored AuthFilter to handle the situation like non token and permit all API call

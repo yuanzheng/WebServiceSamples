@@ -58,20 +58,22 @@ public class AuthFilter extends OncePerRequestFilter {
                     authenticationToken.setDetails(new WebAuthenticationDetailsSource().buildDetails(request));
                     SecurityContextHolder.getContext().setAuthentication(authenticationToken);
                 } else {
-                    handleErrorResponse(response, HttpStatus.UNAUTHORIZED, "Authentication failed, invalid token");
-                    return;
+                    log.warn("Authentication failed, invalid token");
+                    // Token无效，但这里不直接报错，而是清除上下文后继续执行。
+                    // 后续的FilterSecurityInterceptor会根据URL权限配置决定是否放行。
+                    // 对于需要认证的URL，FilterSecurityInterceptor会抛出异常。
+                    // 对于permitAll的URL，即使Token无效，也会放行。
+                    SecurityContextHolder.clearContext();
                 }
             } catch (JwtException | UsernameNotFoundException e) {
                 log.warn("Authentication failed: {}", e.getMessage());
-                handleErrorResponse(response, HttpStatus.UNAUTHORIZED, "Authentication failed");
-                return;
+                // 让后续的授权组件来决定这个请求（带着一个无效的Token）是否能访问目标资源。
+                SecurityContextHolder.clearContext();
             }
-        } else {
-            log.warn("Authentication failed, JWT token missing");
-            handleErrorResponse(response, HttpStatus.UNAUTHORIZED, "Authentication failed, JWT token missing");
-            return;
         }
 
+        // 关键：无论是否有Token，无论Token是否有效，都继续执行过滤器链。
+        // FilterSecurityInterceptor会最终根据URL权限配置做出决定。
         try {
             filterChain.doFilter(request, response);
         } catch (Exception e) {
