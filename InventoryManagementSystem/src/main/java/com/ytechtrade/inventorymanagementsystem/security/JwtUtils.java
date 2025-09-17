@@ -67,9 +67,12 @@ public class JwtUtils {
     public String getUsernameFromToken(String token) {
         try {
             return extractClaims(token, Claims::getSubject);
-        } catch (JwtException | IllegalArgumentException e) {
+        } catch (IllegalArgumentException e) {
             log.warn("Invalid JWT token: {}", e.getMessage());
             return null;
+        } catch (JwtException e) {
+            log.warn("Invalid JWT token: {}", e.getMessage());
+            throw e;
         }
     }
 

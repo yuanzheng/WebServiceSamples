@@ -1,6 +1,8 @@
 package com.ytechtrade.inventorymanagementsystem.security;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
+import com.ytechtrade.inventorymanagementsystem.exceptions.InvalidCredentialsException;
+import com.ytechtrade.inventorymanagementsystem.exceptions.NotFoundException;
 import com.ytechtrade.inventorymanagementsystem.services.CustomUserDetailsService;
 import io.jsonwebtoken.JwtException;
 import jakarta.servlet.FilterChain;
@@ -44,13 +46,13 @@ public class AuthFilter extends OncePerRequestFilter {
             try {
                 String email = jwtUtils.getUsernameFromToken(token);
                 if (!StringUtils.hasText(email)) {
-                    handleErrorResponse(response, HttpStatus.UNAUTHORIZED, "Authentication failed, invalid user account");
-                    return;
+                    log.warn("Invalid token, user account missing in the token");
+                    throw new UsernameNotFoundException("Email missing in the token");
                 }
                 UserDetails userDetails = customUserDetailsService.loadUserByUsername(email);
 
                 if (jwtUtils.isTokenValid(token, userDetails)) {
-                    log.info("Valid Token, {}", email);
+                    log.info("Valid access Token with account, {}", email);
 
                     UsernamePasswordAuthenticationToken authenticationToken = new UsernamePasswordAuthenticationToken(
                             userDetails, null, userDetails.getAuthorities()
@@ -58,14 +60,14 @@ public class AuthFilter extends OncePerRequestFilter {
                     authenticationToken.setDetails(new WebAuthenticationDetailsSource().buildDetails(request));
                     SecurityContextHolder.getContext().setAuthentication(authenticationToken);
                 } else {
-                    log.warn("Authentication failed, invalid token");
+                    log.warn("Invalid token");
                     // Token无效，但这里不直接报错，而是清除上下文后继续执行。
                     // 后续的FilterSecurityInterceptor会根据URL权限配置决定是否放行。
                     // 对于需要认证的URL，FilterSecurityInterceptor会抛出异常。
                     // 对于permitAll的URL，即使Token无效，也会放行。
-                    SecurityContextHolder.clearContext();
+                    throw new InvalidCredentialsException("Token is not valid");
                 }
-            } catch (JwtException | UsernameNotFoundException e) {
+            } catch (JwtException | UsernameNotFoundException | NotFoundException | InvalidCredentialsException e) {
                 log.warn("Authentication failed: {}", e.getMessage());
                 // 让后续的授权组件来决定这个请求（带着一个无效的Token）是否能访问目标资源。
                 SecurityContextHolder.clearContext();

@@ -37,7 +37,7 @@ public class UserServiceImpl implements UserService {
     @Override
     public Response registerUser(RegisterRequest registerRequest) {
 
-        UserRole role = UserRole.MANAGER;
+        UserRole role = UserRole.STUFF;
 
         if (registerRequest.getRole() != null) {
             role = registerRequest.getRole();
@@ -75,7 +75,7 @@ public class UserServiceImpl implements UserService {
                 .message("User Logged in Successfully")
                 .role(user.getRole())
                 .token(token)
-                .expirationTime("6 months")
+                .expirationTime("1 day")
                 .build();
     }
 
