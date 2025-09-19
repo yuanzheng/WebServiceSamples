@@ -1,0 +1,2 @@
+0000000000000000000000000000000000000000 b30b3725c9b52a149dd99ddd50e2cb1ab00c786e Yuanzheng (Lucas) Song <song_yuanzheng@hotmail.com> 1758150276 -0600	commit (initial): Created a new project
+b30b3725c9b52a149dd99ddd50e2cb1ab00c786e 2c2884ebc7e2bf7a7ad41a29f7970dae1d2f0fe8 Yuanzheng (Lucas) Song <song_yuanzheng@hotmail.com> 1758325568 -0600	commit: Added JPA Entities - Product and ProductCategory, and init application properties with database connection
