@@ -1,1 +1,1 @@
-Added JPA Entities - Product and ProductCategory, and init application properties with database connection
+Updated properties with database name and recorded sql scripts using for create database and tables
