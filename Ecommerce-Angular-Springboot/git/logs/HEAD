@@ -3,3 +3,4 @@ b30b3725c9b52a149dd99ddd50e2cb1ab00c786e 2c2884ebc7e2bf7a7ad41a29f7970dae1d2f0fe
 2c2884ebc7e2bf7a7ad41a29f7970dae1d2f0fe8 2c2884ebc7e2bf7a7ad41a29f7970dae1d2f0fe8 Yuanzheng (Lucas) Song <song_yuanzheng@hotmail.com> 1758556991 -0600	reset: moving to HEAD
 2c2884ebc7e2bf7a7ad41a29f7970dae1d2f0fe8 9718a6683df9b7e8ec48a34611d61c260f1ce88b Yuanzheng (Lucas) Song <song_yuanzheng@hotmail.com> 1758566188 -0600	commit: Added repostiories for product
 9718a6683df9b7e8ec48a34611d61c260f1ce88b d1d51ed677a0642bda6f6017a5c8ea58389122f4 Yuanzheng (Lucas) Song <song_yuanzheng@hotmail.com> 1758566465 -0600	commit: Updated properties with database name and recorded sql scripts using for create database and tables
+d1d51ed677a0642bda6f6017a5c8ea58389122f4 5143f96e903295dadb9df7f0bdd99c0cc06c387c Yuanzheng (Lucas) Song <song_yuanzheng@hotmail.com> 1758583715 -0600	commit: Added Spring Data Rest config, to disable POST,UPDATE, and DELETE
