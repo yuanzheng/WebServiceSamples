@@ -4,7 +4,7 @@ CREATE TABLE `user`
 (
     id BIGINT NOT NULL AUTO_INCREMENT COMMENT 'Primary Key ID',
     user_name VARCHAR(256) NULL COMMENT 'Users Name',
-    user_account VARCHAR(256) NULL COMMENT 'Users account number',
+    user_account VARCHAR(256) NOT NULL COMMENT 'Users account number',
     avatar_url VARCHAR(1024) NULL COMMENT 'Users profile picture',
     gender tinyint NULL COMMENT 'Gender',
     user_password VARCHAR(512) NOT NULL COMMENT 'Login password',
@@ -14,5 +14,8 @@ CREATE TABLE `user`
     create_time DATETIME DEFAULT CURRENT_TIMESTAMP NULL COMMENT 'Current time',
     update_time DATETIME DEFAULT CURRENT_TIMESTAMP NULL ON UPDATE CURRENT_TIMESTAMP COMMENT 'Time to update the user',
     is_delete TINYINT DEFAULT 0 NOT NULL COMMENT 'If it is required to delete',
-    PRIMARY KEY (id)
+    PRIMARY KEY (id),
+    CONSTRAINT `uk_user_account` UNIQUE (`user_account`),
+    CONSTRAINT `uk_phone` UNIQUE (`phone`),
+    CONSTRAINT `uk_email` UNIQUE (`email`)
 ) COMMENT 'Users info table';

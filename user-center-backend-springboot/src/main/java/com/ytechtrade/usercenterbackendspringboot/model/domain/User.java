@@ -5,9 +5,8 @@ import lombok.Data;
 
 import java.io.Serializable;
 import java.util.Date;
-
-@TableName("user")
 @Data
+@TableName("user")
 public class User implements Serializable {
     /**
      * Primary Key ID
@@ -82,99 +81,5 @@ public class User implements Serializable {
     @TableLogic
     @TableField("is_delete")
     private Integer isDelete;
-
-    public Long getId() {
-        return id;
-    }
-
-    public void setUserName(String userName) {
-        this.userName = userName;
-    }
-
-    public void setUserAccount(String userAccount) {
-        this.userAccount = userAccount;
-    }
-
-    public void setAvatarUrl(String avatarUrl) {
-        this.avatarUrl = avatarUrl;
-    }
-
-    public void setGender(Integer gender) {
-        this.gender = gender;
-    }
-
-    public void setUserPassword(String userPassword) {
-        this.userPassword = userPassword;
-    }
-
-    public void setPhone(String phone) {
-        this.phone = phone;
-    }
-
-    public void setEmail(String email) {
-        this.email = email;
-    }
-
-    public void setUserStatus(Integer userStatus) {
-        this.userStatus = userStatus;
-    }
-
-    public void setCreateTime(Date createTime) {
-        this.createTime = createTime;
-    }
-
-    public void setUpdateTime(Date updateTime) {
-        this.updateTime = updateTime;
-    }
-
-    public void setIsDelete(Integer isDelete) {
-        this.isDelete = isDelete;
-    }
-
-    public String getUserName() {
-        return userName;
-    }
-
-    public String getUserAccount() {
-        return userAccount;
-    }
-
-    public String getAvatarUrl() {
-        return avatarUrl;
-    }
-
-    public Integer getGender() {
-        return gender;
-    }
-
-    public String getUserPassword() {
-        return userPassword;
-    }
-
-    public String getPhone() {
-        return phone;
-    }
-
-    public String getEmail() {
-        return email;
-    }
-
-    public Integer getUserStatus() {
-        return userStatus;
-    }
-
-    public Date getCreateTime() {
-        return createTime;
-    }
-
-    public Date getUpdateTime() {
-        return updateTime;
-    }
-
-    public Integer getIsDelete() {
-        return isDelete;
-    }
-
-
 
 }
