@@ -3,6 +3,8 @@ package com.ytechtrade.usercenterbackendspringboot.service;
 import com.baomidou.mybatisplus.extension.service.IService;
 import com.ytechtrade.usercenterbackendspringboot.model.domain.User;
 
+import javax.servlet.http.HttpServletRequest;
+
 /**
  * Services for users
  *
@@ -12,6 +14,7 @@ import com.ytechtrade.usercenterbackendspringboot.model.domain.User;
  */
 public interface UserService extends IService<User> {
 
+    String USER_LOGIN_STATE = "userLoginState";
     /**
      * New user registration process
      * @param userAccount
@@ -21,4 +24,19 @@ public interface UserService extends IService<User> {
      */
     long userRegister(String userAccount, String userPassword, String checkPassword);
 
+    /**
+     * Login with account and password
+     * @param userAccount
+     * @param userPassword
+     * @param request
+     * @return
+     */
+    User userLogin(String userAccount, String userPassword, HttpServletRequest request);
+
+    /**
+     * Remove all sensitive information from the originUser
+     * @param originUser
+     * @return
+     */
+    User getSafetyUser(User originUser);
 }

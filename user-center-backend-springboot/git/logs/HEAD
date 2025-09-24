@@ -7,3 +7,5 @@ e9649259a3089b76134e35c6fddf5d832b9c3e2f 2372c55a0118e711bdb1a144b038c8bfce8f651
 2372c55a0118e711bdb1a144b038c8bfce8f6515 6a3f8f45a06d8b19c6806e24953ca35724669625 Yuanzheng (Lucas) Song <song_yuanzheng@hotmail.com> 1758648468 -0600	commit: Fixed user entity lombok setter and getter issue
 6a3f8f45a06d8b19c6806e24953ca35724669625 402a2e8928c5446e403fd67d5732417e61a2102e Yuanzheng (Lucas) Song <song_yuanzheng@hotmail.com> 1758648512 -0600	commit: Updated user table by adding some constraint unique keys
 402a2e8928c5446e403fd67d5732417e61a2102e e1406ace25f0064fd4abe4f2583a1d62d254b2ef Yuanzheng (Lucas) Song <song_yuanzheng@hotmail.com> 1758652587 -0600	commit: Implemented user registration feature and tests
+e1406ace25f0064fd4abe4f2583a1d62d254b2ef faea128b7f241ed0a85dbf04c6b9ab9e1abe0c9a Yuanzheng (Lucas) Song <song_yuanzheng@hotmail.com> 1758690465 -0600	commit: Implemented user login feature
+faea128b7f241ed0a85dbf04c6b9ab9e1abe0c9a 802a56cc9763955060ac2ddf15f2710cec04facd Yuanzheng (Lucas) Song <song_yuanzheng@hotmail.com> 1758693921 -0600	commit: Added MyBatis Plus Delete logic, only retrieve users without delete status
