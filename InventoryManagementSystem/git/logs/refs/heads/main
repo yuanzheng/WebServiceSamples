@@ -23,3 +23,6 @@ a7e3ffa67cb6250cd97be471cccac0c7f02fc1ac 9cca71975ed2b4de1bf0e123f873879b1c55e53
 4a847e908d351312815ba0097cda484b7a605103 b3a39a21ac2e6f6237a84653f8cb0cccf7a48ee4 Yuanzheng (Lucas) Song <song_yuanzheng@hotmail.com> 1758142726 -0600	commit (amend): Debuged and test authentication with token,and refactored code with better exception handling and log messages
 b3a39a21ac2e6f6237a84653f8cb0cccf7a48ee4 0282b92d5f0b53a1f115ab12351f859c8e245eeb Yuanzheng (Lucas) Song <song_yuanzheng@hotmail.com> 1758926093 -0600	commit: Added Category services and controller
 0282b92d5f0b53a1f115ab12351f859c8e245eeb b47e8343a0438d71c44fa9065dba9842663ce957 Yuanzheng (Lucas) Song <song_yuanzheng@hotmail.com> 1758927443 -0600	commit: Added supplier services and controller
+b47e8343a0438d71c44fa9065dba9842663ce957 478e598d55f8eb44acf15dd96d86d55f643c4317 Yuanzheng (Lucas) Song <song_yuanzheng@hotmail.com> 1759175901 -0600	commit: Added production service and controllers
+478e598d55f8eb44acf15dd96d86d55f643c4317 66fae3bc01ce19bc7cab296d0dd5dee7bf34913e Yuanzheng (Lucas) Song <song_yuanzheng@hotmail.com> 1759275683 -0600	commit: Added transaction services and controllers
+66fae3bc01ce19bc7cab296d0dd5dee7bf34913e ce82a47972ded22e897fe481b225f3a88e9b2997 Yuanzheng (Lucas) Song <song_yuanzheng@hotmail.com> 1759278363 -0600	commit: Refactored to handle over selling situation
