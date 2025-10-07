@@ -1,9 +1,11 @@
 package com.ytechtrade.inventorymanagementsystem.specification;
 
-import com.ytechtrade.inventorymanagementsystem.models.Transaction;
+import com.ytechtrade.inventorymanagementsystem.models.*;
 import jakarta.persistence.criteria.Expression;
+import jakarta.persistence.criteria.Join;
 import jakarta.persistence.criteria.JoinType;
 import jakarta.persistence.criteria.Predicate;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.data.jpa.domain.Specification;
 
 import java.util.ArrayList;
@@ -11,6 +13,7 @@ import java.util.List;
 
 // TODO Using SQL to filter in database
 //Specification is used in Filtering data in a database
+@Slf4j
 public class TransactionFilter {
 
     public static Specification<Transaction> byFilter(String searchValue) {
@@ -25,7 +28,9 @@ public class TransactionFilter {
             // Create a list to hold all predicates
             List<Predicate> predicates = new ArrayList<>();
 
+            log.debug("SEARCH VALUE in byFilter IS: " + searchPattern);
             // Check transactions fields
+            // 主表字段
             predicates.add(criteriaBuilder.like(criteriaBuilder.lower(root.get("description")), searchPattern));
             predicates.add(criteriaBuilder.like(criteriaBuilder.lower(root.get("note")), searchPattern));
             predicates.add(criteriaBuilder.like(criteriaBuilder.lower(root.get("status").as(String.class)), searchPattern));
@@ -33,35 +38,34 @@ public class TransactionFilter {
 
             // Safely join and check user fields using LEFT JOIN
             if (root.getJoins().stream().noneMatch(j -> j.getAttribute().getName().equals("user"))) {
-                root.join("user", JoinType.LEFT);
+                // 关联表字段 - 使用已存在的join，避免重复join
+                Join<Transaction, User> userJoin = root.join("user", JoinType.LEFT);
+                predicates.add(criteriaBuilder.like(criteriaBuilder.lower(userJoin.get("name")), searchPattern));
+                predicates.add(criteriaBuilder.like(criteriaBuilder.lower(userJoin.get("email")), searchPattern));
+                predicates.add(criteriaBuilder.like(criteriaBuilder.lower(userJoin.get("phoneNumber")), searchPattern));
             }
-            predicates.add(criteriaBuilder.like(criteriaBuilder.lower(root.join("user", JoinType.LEFT).get("name")), searchPattern));
-            predicates.add(criteriaBuilder.like(criteriaBuilder.lower(root.join("user", JoinType.LEFT).get("email")), searchPattern));
-            predicates.add(criteriaBuilder.like(criteriaBuilder.lower(root.join("user", JoinType.LEFT).get("phoneNumber")), searchPattern));
+
 
             // Safely join and check supplier fields using LEFT JOIN
             if (root.getJoins().stream().noneMatch(j -> j.getAttribute().getName().equals("supplier"))) {
-                root.join("supplier", JoinType.LEFT);
+                Join<Transaction, Supplier> supplierJoin = root.join("supplier", JoinType.LEFT);
+                predicates.add(criteriaBuilder.like(criteriaBuilder.lower(supplierJoin.get("name")), searchPattern));
+                predicates.add(criteriaBuilder.like(criteriaBuilder.lower(supplierJoin.get("contactInfo")), searchPattern));
             }
-            predicates.add(criteriaBuilder.like(criteriaBuilder.lower(root.join("supplier", JoinType.LEFT).get("name")), searchPattern));
-            predicates.add(criteriaBuilder.like(criteriaBuilder.lower(root.join("supplier", JoinType.LEFT).get("contactInfo")), searchPattern));
 
             // Safely join and check product fields using LEFT JOIN
             if (root.getJoins().stream().noneMatch(j -> j.getAttribute().getName().equals("product"))) {
-                root.join("product", JoinType.LEFT);
-            }
+                Join<Transaction, Product> productJoin = root.join("product", JoinType.LEFT);
+                predicates.add(criteriaBuilder.like(criteriaBuilder.lower(productJoin.get("name")), searchPattern));
+                predicates.add(criteriaBuilder.like(criteriaBuilder.lower(productJoin.get("sku")), searchPattern));
+                predicates.add(criteriaBuilder.like(criteriaBuilder.lower(productJoin.get("description")), searchPattern));
 
-            predicates.add(criteriaBuilder.like(criteriaBuilder.lower(root.join("product", JoinType.LEFT).get("name")), searchPattern));
-            predicates.add(criteriaBuilder.like(criteriaBuilder.lower(root.join("product", JoinType.LEFT).get("sku")), searchPattern));
-            predicates.add(criteriaBuilder.like(criteriaBuilder.lower(root.join("product", JoinType.LEFT).get("description")), searchPattern));
-
-            // Safely join product category using LEFT JOIN
-            if (root.getJoins().stream().noneMatch(j -> j.getAttribute().getName().equals("product")) &&
-                    root.join("product").getJoins().stream().noneMatch(j -> j.getAttribute().getName().equals("category"))) {
-                root.join("product", JoinType.LEFT).join("category", JoinType.LEFT);
+                // Safely join product category using LEFT JOIN
+                if (productJoin.getJoins().stream().noneMatch(j -> j.getAttribute().getName().equals("category"))) {
+                    Join<Product, Category> categoryJoin = productJoin.join("category", JoinType.LEFT);
+                    predicates.add(criteriaBuilder.like(criteriaBuilder.lower(categoryJoin.get("name")), searchPattern));
+                }
             }
-            predicates.add(criteriaBuilder.like(criteriaBuilder.lower(root.join("product", JoinType.LEFT)
-                    .join("category", JoinType.LEFT).get("name")), searchPattern));
 
             // Combine all predicates with OR
             return criteriaBuilder.or(predicates.toArray(new Predicate[0]));

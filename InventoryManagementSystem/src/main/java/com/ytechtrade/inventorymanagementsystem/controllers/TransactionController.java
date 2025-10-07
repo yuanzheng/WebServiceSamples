@@ -35,8 +35,6 @@ public class TransactionController {
             @RequestParam(defaultValue = "0") int page,
             @RequestParam(defaultValue = "1000") int size,
             @RequestParam(required = false) String filter) {
-
-        System.out.println("SEARCH VALUE IS: " + filter);
         return ResponseEntity.ok(transactionService.getAllTransactions(page, size, filter));
     }
 

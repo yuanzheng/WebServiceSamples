@@ -97,7 +97,7 @@ public class TransactionServiceImpl implements TransactionService {
         int quantityLeft = product.getStockQuantity() - quantity;
         log.info("sell, and quantity of left: " + quantityLeft);
         if (quantityLeft < 0) {
-            throw new NotFoundException("No enough products left for selling, please change the quantity");
+            throw new NameValueRequiredException("No enough products left for selling, please change the quantity");
         }
         product.setStockQuantity(quantityLeft);
 
@@ -139,7 +139,12 @@ public class TransactionServiceImpl implements TransactionService {
         User user = userService.getCurrentLoggedInUser();
 
         //update the stock quantity and re-save
-        product.setStockQuantity(product.getStockQuantity() - quantity);
+        int quantityLeft = product.getStockQuantity() - quantity;
+        log.info("return, and quantity of left after return: " + quantityLeft);
+        if (quantityLeft < 0) {
+            throw new NameValueRequiredException("No enough products left to return to supplier, please change the return quantity");
+        }
+        product.setStockQuantity(quantityLeft);
         productRepository.save(product);
 
         //create a transaction
@@ -148,6 +153,7 @@ public class TransactionServiceImpl implements TransactionService {
                 .status(TransactionStatus.PROCESSING)
                 .product(product)
                 .user(user)
+                .supplier(supplier)
                 .totalProducts(quantity)
                 .totalPrice(BigDecimal.ZERO)
                 .description(transactionRequest.getDescription())
@@ -169,16 +175,13 @@ public class TransactionServiceImpl implements TransactionService {
         //user the Transaction specification
         Specification<Transaction> spec = TransactionFilter.byFilter(filter);
         Page<Transaction> transactionPage = transactionRepository.findAll(spec, pageable);
-
         List<TransactionDTO> transactionDTOS = modelMapper.map(transactionPage.getContent(), new TypeToken<List<TransactionDTO>>() {
         }.getType());
-
         transactionDTOS.forEach(transactionDTO -> {
             transactionDTO.setUser(null);
             transactionDTO.setProduct(null);
             transactionDTO.setSupplier(null);
         });
-
         return Response.builder()
                 .status(200)
                 .message("success")

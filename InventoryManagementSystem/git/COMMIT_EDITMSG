@@ -1,1 +1,1 @@
-Refactored to handle over selling situation
+Refactor transaction filter class to remove the duplicated join the same table, and add properties to print SQL in the log
