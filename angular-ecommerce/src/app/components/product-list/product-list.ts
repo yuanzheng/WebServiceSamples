@@ -1,5 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, DestroyRef, inject, OnInit } from '@angular/core';
 import { CommonModule, CurrencyPipe } from '@angular/common';
+import { takeUntilDestroyed } from "@angular/core/rxjs-interop";
 import { Product } from '../../common/product';
 import { ProductService } from '../../services/product.service';
 
@@ -12,6 +13,7 @@ import { ProductService } from '../../services/product.service';
 export class ProductListComponent implements OnInit {
 
   products: Product[] = [];
+  destroyRef = inject(DestroyRef);
 
   constructor(private productService: ProductService) { }
 
@@ -20,11 +22,17 @@ export class ProductListComponent implements OnInit {
   }
 
   listProducts() {
-    this.productService.getProductList().subscribe(
-      data => {
-        this.products = data;
-      }
-    )
+    this.productService.getProductList()
+      .pipe(takeUntilDestroyed(this.destroyRef)) // 自动管理订阅生命周期
+      .subscribe({
+        next: (data) => {
+          this.products = data; 
+        },
+        error: (error) => {
+          console.error('Failed to load products:', error);
+          // 这里可以添加用户友好的错误提示
+        }
+    });
   }
 
 }

@@ -1,3 +1,8 @@
-<p *ngFor="let tempProduct of products">
+<div *ngIf="products && products.length > 0">
+  <p *ngFor="let tempProduct of products">
     {{ tempProduct.name }}: {{ tempProduct.unitPrice | currency:'USD' }}
-</p>
+  </p>
+</div>
+<div *ngIf="!products || products.length === 0">
+  <p>No products available.</p>
+</div>
