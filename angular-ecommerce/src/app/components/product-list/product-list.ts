@@ -6,7 +6,8 @@ import { ProductService } from '../../services/product.service';
 
 @Component({
   selector: 'app-product-list',
-  templateUrl: './product-list.html',
+  //   templateUrl: './product-list.html',
+  templateUrl: './product-list-table.html',
   styleUrls: ['./product-list.css'],
   imports: [CommonModule, CurrencyPipe]
 })
