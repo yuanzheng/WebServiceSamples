@@ -16,7 +16,6 @@ public class User implements Serializable {
      * Primary Key ID
      */
     @TableId(type = IdType.AUTO)
-    @TableField("id")
     private Long id;
 
     /**

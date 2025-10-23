@@ -1,0 +1,12 @@
+POST http://localhost:8080/user/login
+Content-Type: application/json
+
+{
+  "userAccount":"yupi",
+  "userPassword": "12345678"
+}
+
+<> 2025-10-22T174220.200.json
+<> 2025-10-22T173836.500.json
+
+###
