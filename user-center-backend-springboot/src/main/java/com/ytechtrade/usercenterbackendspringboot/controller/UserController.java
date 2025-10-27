@@ -5,6 +5,7 @@ import com.ytechtrade.usercenterbackendspringboot.model.domain.User;
 import com.ytechtrade.usercenterbackendspringboot.model.dto.UserLoginRequest;
 import com.ytechtrade.usercenterbackendspringboot.model.dto.UserRegisterRequest;
 import com.ytechtrade.usercenterbackendspringboot.service.UserService;
+import lombok.extern.slf4j.Slf4j;
 import org.apache.commons.lang3.StringUtils;
 import org.springframework.web.bind.annotation.*;
 
@@ -16,6 +17,7 @@ import java.util.List;
 import static com.ytechtrade.usercenterbackendspringboot.constant.UserConstant.ADMIN_ROLE;
 import static com.ytechtrade.usercenterbackendspringboot.constant.UserConstant.USER_LOGIN_STATE;
 
+@Slf4j
 @RestController
 @RequestMapping("/user")
 public class UserController {
@@ -54,7 +56,7 @@ public class UserController {
 
     @GetMapping("/search")
     public List<User> searchUsers(String username, HttpServletRequest request) {
-        // 仅管理员可查询
+       // 仅管理员可查询
         if (!isAdmin(request)) {
             return new ArrayList<>();
         }

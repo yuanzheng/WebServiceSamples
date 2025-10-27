@@ -15,6 +15,7 @@ import javax.servlet.http.HttpServletRequest;
 import java.util.List;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
+import java.util.stream.Collectors;
 
 import static com.ytechtrade.usercenterbackendspringboot.constant.UserConstant.USER_LOGIN_STATE;
 
@@ -142,9 +143,11 @@ public class UserServiceImpl extends ServiceImpl<UserMapper, User> implements Us
         // 用户名是否有类似的
         QueryWrapper<User> queryWrapper = new QueryWrapper<>();
         if (StringUtils.isNotBlank(username)) {
-            queryWrapper.like("username", username);
+            queryWrapper.like("user_name", username);
         }
-        return this.list(queryWrapper);
+        List<User> userList = this.list(queryWrapper);
+        return userList.stream().map(user -> getSafetyUser(user)).collect(Collectors.toList());
+
     }
 
 }
