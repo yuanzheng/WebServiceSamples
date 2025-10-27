@@ -4,6 +4,7 @@ import com.baomidou.mybatisplus.extension.service.IService;
 import com.ytechtrade.usercenterbackendspringboot.model.domain.User;
 
 import javax.servlet.http.HttpServletRequest;
+import java.util.List;
 
 /**
  * Services for users
@@ -14,7 +15,6 @@ import javax.servlet.http.HttpServletRequest;
  */
 public interface UserService extends IService<User> {
 
-    String USER_LOGIN_STATE = "userLoginState";
     /**
      * New user registration process
      * @param userAccount
@@ -39,4 +39,6 @@ public interface UserService extends IService<User> {
      * @return
      */
     User getSafetyUser(User originUser);
+
+    List<User> searchUsers(String username);
 }

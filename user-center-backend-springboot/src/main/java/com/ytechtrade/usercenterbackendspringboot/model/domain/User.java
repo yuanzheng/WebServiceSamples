@@ -85,4 +85,10 @@ public class User implements Serializable {
     @TableField("is_delete")
     private Integer isDelete;
 
+    /**
+     * 0 - normal user, 1 - Admin
+     */
+    @TableField("role")
+    private Integer userRole;
+
 }
