@@ -153,4 +153,5 @@ export const layout: RunTimeLayoutConfig = ({
 export const request: RequestConfig = {
   baseURL: isDev ? '' : 'https://proapi.azurewebsites.net',
   ...errorConfig,
+  timeout: 1000000,
 };

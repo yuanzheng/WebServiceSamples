@@ -14,7 +14,7 @@ import {
 } from '@ant-design/pro-components';
 import {
   FormattedMessage,
-  Helmet,
+  Helmet, Link,
   SelectLang,
   useIntl,
   useModel,
@@ -27,6 +27,7 @@ import { Footer } from '@/components';
 import { login } from '@/services/ant-design-pro/api';
 import { getFakeCaptcha } from '@/services/ant-design-pro/login';
 import Settings from '../../../../config/defaultSettings';
+import {GAME_LINK} from '@/constants';
 
 const useStyles = createStyles(({ token }) => {
   return {
@@ -183,13 +184,16 @@ const Login: React.FC = () => {
             maxWidth: '75vw',
           }}
           logo={<img alt="logo" src="/logo.svg" />}
-          title="Ant Design"
-          subTitle={intl.formatMessage({
+          title="yTechTrade Online Shopping"
+          /*subTitle={intl.formatMessage({
             id: 'pages.layouts.userLayout.title',
-          })}
+          })}*/
+          subTitle={<a href={GAME_LINK} target="_blank" rel="noreferrer">Snake Game, just for fun</a>}
+
           initialValues={{
             autoLogin: true,
           }}
+          /*
           actions={[
             <FormattedMessage
               key="loginWith"
@@ -198,6 +202,7 @@ const Login: React.FC = () => {
             />,
             <ActionIcons key="icons" />,
           ]}
+           */
           onFinish={async (values) => {
             await handleSubmit(values as API.LoginParams);
           }}
@@ -213,14 +218,14 @@ const Login: React.FC = () => {
                   id: 'pages.login.accountLogin.tab',
                   defaultMessage: '账户密码登录',
                 }),
-              },
+              },/*
               {
                 key: 'mobile',
                 label: intl.formatMessage({
                   id: 'pages.login.phoneLogin.tab',
                   defaultMessage: '手机号登录',
                 }),
-              },
+              },*/
             ]}
           />
 
@@ -235,14 +240,14 @@ const Login: React.FC = () => {
           {type === 'account' && (
             <>
               <ProFormText
-                name="username"
+                name="userAccount"
                 fieldProps={{
                   size: 'large',
                   prefix: <UserOutlined />,
                 }}
                 placeholder={intl.formatMessage({
                   id: 'pages.login.username.placeholder',
-                  defaultMessage: '用户名: admin or user',
+                  defaultMessage: '用户名: User Account',
                 })}
                 rules={[
                   {
@@ -257,14 +262,14 @@ const Login: React.FC = () => {
                 ]}
               />
               <ProFormText.Password
-                name="password"
+                name="userPassword"
                 fieldProps={{
                   size: 'large',
                   prefix: <LockOutlined />,
                 }}
                 placeholder={intl.formatMessage({
                   id: 'pages.login.password.placeholder',
-                  defaultMessage: '密码: ant.design',
+                  defaultMessage: '密码',
                 })}
                 rules={[
                   {
@@ -376,10 +381,14 @@ const Login: React.FC = () => {
                 defaultMessage="自动登录"
               />
             </ProFormCheckbox>
+            <Link to="/user/register">新用户注册</Link>
             <a
               style={{
                 float: 'right',
               }}
+              href={GAME_LINK}
+              target="_blank"
+              rel="noreferrer"
             >
               <FormattedMessage
                 id="pages.login.forgotPassword"
