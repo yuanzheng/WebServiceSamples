@@ -134,8 +134,9 @@ const Login: React.FC = () => {
   const handleSubmit = async (values: API.LoginParams) => {
     try {
       // 登录
-      const msg = await login({ ...values, type });
-      if (msg.status === 'ok') {
+      const user = await login({ ...values, type });
+      if (user) {
+        console.log("login success, msg: ", user);
         const defaultLoginSuccessMessage = intl.formatMessage({
           id: 'pages.login.success',
           defaultMessage: '登录成功！',
@@ -146,9 +147,9 @@ const Login: React.FC = () => {
         window.location.href = urlParams.get('redirect') || '/';
         return;
       }
-      console.log(msg);
+      console.log('Failed to login', user);
       // 如果失败去设置用户错误信息
-      setUserLoginState(msg);
+      setUserLoginState(user);
     } catch (error) {
       const defaultLoginFailureMessage = intl.formatMessage({
         id: 'pages.login.failure',
@@ -280,6 +281,11 @@ const Login: React.FC = () => {
                         defaultMessage="请输入密码！"
                       />
                     ),
+                  },
+                  {
+                    min: 8,
+                    type: 'string',
+                    message: '长度不能小于 8',
                   },
                 ]}
               />
