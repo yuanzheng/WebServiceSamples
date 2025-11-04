@@ -7,12 +7,16 @@ import com.ytechtrade.usercenterbackendspringboot.model.dto.UserRegisterRequest;
 import com.ytechtrade.usercenterbackendspringboot.service.UserService;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.commons.lang3.StringUtils;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import static com.ytechtrade.usercenterbackendspringboot.constant.UserConstant.ADMIN_ROLE;
 import static com.ytechtrade.usercenterbackendspringboot.constant.UserConstant.USER_LOGIN_STATE;
@@ -26,7 +30,7 @@ public class UserController {
     private UserService userService;
 
     @PostMapping("/register")
-    public Long userRegister(@RequestBody UserRegisterRequest userRegisterRequest) {
+    public ResponseEntity<Map<String, Object>> userRegister(@RequestBody UserRegisterRequest userRegisterRequest) {
         // 校验
         if (userRegisterRequest == null) {
             return null;
@@ -38,17 +42,33 @@ public class UserController {
         if (StringUtils.isAnyBlank(userAccount, userPassword, checkPassword)) {
             return null;
         }
-        return userService.userRegister(userAccount, userPassword, checkPassword);
+        long newUserId = userService.userRegister(userAccount, userPassword, checkPassword);
+
+        Map<String, Object> response = new HashMap<>();
+        Map<String, String> data = new HashMap<>();
+        response.put("success", true);
+        data.put("status", "ok");
+        data.put("currentAuthority", "user");
+        if  (newUserId < 0) {
+            response.put("success", false);
+            data.put("status", "error");
+            response.put("errorMessage", "User account is already registered");
+        }
+        response.put("data", data);
+        return new ResponseEntity<>(response, HttpStatus.OK);
     }
 
     @PostMapping("/login")
     public User userLogin(@RequestBody UserLoginRequest userLoginRequest, HttpServletRequest request) {
+        log.info("User login now");
         if (userLoginRequest == null) {
+            log.info("Login Request is null");
             return null;
         }
         String userAccount = userLoginRequest.getUserAccount();
         String userPassword = userLoginRequest.getUserPassword();
         if (StringUtils.isAnyBlank(userAccount, userPassword)) {
+            log.info("Account or password is empty");
             return null;
         }
         return userService.userLogin(userAccount, userPassword, request);
