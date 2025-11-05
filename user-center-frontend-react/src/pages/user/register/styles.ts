@@ -3,9 +3,18 @@ import { createStyles } from 'antd-style';
 const useStyles = createStyles(({ token }) => {
   return {
     main: {
+      display: 'flex',
+      flexDirection: 'column',
+      height: '100vh',
+      overflow: 'auto',
+      h3: { marginBottom: '20px', fontSize: '16px' },
+      backgroundImage:
+        "url('https://mdn.alipayobjects.com/yuyan_qk0oxh/afts/img/V-_oS6r-i7wAAAAAAAAAAAAAFl94AQBr')",
+      backgroundSize: '100% 100%',
+    },
+    formStyle: {
       width: '368px',
       margin: '0 auto',
-      h3: { marginBottom: '20px', fontSize: '16px' },
     },
     password: {
       marginBottom: '24px',
@@ -15,7 +24,6 @@ const useStyles = createStyles(({ token }) => {
       display: 'block',
       width: '100%',
     },
-
     footer: {
       width: '100%',
       display: 'flex',
@@ -39,6 +47,17 @@ const useStyles = createStyles(({ token }) => {
     },
     'progress-pass > .progress': {
       '.ant-progress-bg': { backgroundColor: token.colorWarning },
+    },
+    lang: {
+      width: 42,
+      height: 42,
+      lineHeight: '42px',
+      position: 'fixed',
+      right: 16,
+      borderRadius: token.borderRadius,
+      ':hover': {
+        backgroundColor: token.colorBgTextHover,
+      },
     },
   };
 });

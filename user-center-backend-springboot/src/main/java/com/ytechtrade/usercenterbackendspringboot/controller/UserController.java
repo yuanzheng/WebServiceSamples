@@ -1,6 +1,5 @@
 package com.ytechtrade.usercenterbackendspringboot.controller;
 
-import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.ytechtrade.usercenterbackendspringboot.model.domain.User;
 import com.ytechtrade.usercenterbackendspringboot.model.dto.UserLoginRequest;
 import com.ytechtrade.usercenterbackendspringboot.model.dto.UserRegisterRequest;

@@ -20,8 +20,6 @@ import useStyles from './styles';
 import {Helmet, SelectLang, useIntl} from "@@/exports";
 import Settings from "../../../../config/defaultSettings";
 import {Footer} from "@/components";
-import {GAME_LINK} from "@/constants";
-import {LoginForm} from "@ant-design/pro-components";
 
 
 const FormItem = Form.Item;
@@ -36,6 +34,17 @@ const passwordProgressMap: {
   pass: 'normal',
   poor: 'exception',
 };
+
+const Lang = () => {
+  const { styles } = useStyles();
+
+  return (
+    <div className={styles.lang} data-lang>
+      {SelectLang && <SelectLang />}
+    </div>
+  );
+};
+
 const Register: FC = () => {
   const { styles } = useStyles();
   const [count, setCount]: [number, any] = useState(0);
@@ -100,7 +109,7 @@ const Register: FC = () => {
       if (data.status === 'ok') {
         message.success('注册成功！');
         history.push({
-          pathname: `/user/register-result?account=${params[0].email}`,
+          pathname: `/user/register-result?account=${params[0].userAccount}`,
         });
       }
     },
@@ -165,108 +174,122 @@ const Register: FC = () => {
           {Settings.title && ` - ${Settings.title}`}
         </title>
       </Helmet>
-      <h3>"yTechTrade Online Shopping"</h3>
-      <h3>注册</h3>
+      <Lang />
+      <div
+        style={{
+          flex: '1',
+          padding: '32px 0',
+        }}
+      >
+        <div style={{ textAlign: 'center', alignItems: 'center' }}>
+          <div style={{height: 44, fontWeight: 600, fontSize: '16px', marginBottom: '16px'}}>
+            <h1>yTechTrade Online Shopping</h1>
+          </div>
+          <h3>注册</h3>
+        </div>
 
-      <Form form={form} name="UserRegister" onFinish={onFinish}>
-        <FormItem
-          name="userAccount"
-          rules={[
-            {
-              required: true,
-              message: 'Please type in an unique account name (letters only)!',
-            },
-            {
-              type: 'string',
-              message: 'Special letters are not accepted!',
-            },
-          ]}
-        >
-          <Input size="large" placeholder="User Account" />
-        </FormItem>
-        <Popover
-          getPopupContainer={(node) => {
-            if (node?.parentNode) {
-              return node.parentNode as HTMLElement;
-            }
-            return node;
-          }}
-          content={
-            open && (
-              <div
-                style={{
-                  padding: '4px 0',
-                }}
-              >
-                {passwordStatusMap[getPasswordStatus()]}
-                {renderPasswordProgress()}
-                <div
-                  style={{
-                    marginTop: 10,
-                  }}
-                >
-                  <span>请至少输入 8 个字符。请不要使用容易被猜到的密码。</span>
-                </div>
-              </div>
-            )
-          }
-          overlayStyle={{
-            width: 240,
-          }}
-          placement="right"
-          open={open}
-        >
+        <Form
+          className={styles.formStyle}
+          form={form} name="UserRegister" onFinish={onFinish}>
           <FormItem
-            name="userPassword"
-            className={
-              form.getFieldValue('userPassword') &&
-              form.getFieldValue('userPassword').length > 0 &&
-              styles.password
-            }
+            name="userAccount"
             rules={[
               {
-                validator: checkPassword,
+                required: true,
+                message: 'Please type in an unique account name (letters only)!',
+              },
+              {
+                type: 'string',
+                message: 'Special letters are not accepted!',
               },
             ]}
           >
-            <Input
-              size="large"
-              type="password"
-              placeholder="至少8位密码，区分大小写"
-            />
+            <Input size="large" placeholder="User Account" />
           </FormItem>
-        </Popover>
-        <FormItem
-          name="checkPassword"
-          rules={[
-            {
-              required: true,
-              message: '确认密码',
-            },
-            {
-              validator: checkConfirm,
-            },
-          ]}
-        >
-          <Input size="large" type="password" placeholder="确认密码" />
-        </FormItem>
-        <FormItem>
-          <div className={styles.footer}>
-            <Button
-              size="large"
-              loading={submitting}
-              className={styles.submit}
-              type="primary"
-              htmlType="submit"
+          <Popover
+            getPopupContainer={(node) => {
+              if (node?.parentNode) {
+                return node.parentNode as HTMLElement;
+              }
+              return node;
+            }}
+            content={
+              open && (
+                <div
+                  style={{
+                    padding: '4px 0',
+                  }}
+                >
+                  {passwordStatusMap[getPasswordStatus()]}
+                  {renderPasswordProgress()}
+                  <div
+                    style={{
+                      marginTop: 10,
+                    }}
+                  >
+                    <span>请至少输入 8 个字符。请不要使用容易被猜到的密码。</span>
+                  </div>
+                </div>
+              )
+            }
+            overlayStyle={{
+              width: 240,
+            }}
+            placement="right"
+            open={open}
+          >
+            <FormItem
+              name="userPassword"
+              className={
+                form.getFieldValue('userPassword') &&
+                form.getFieldValue('userPassword').length > 0 &&
+                styles.password
+              }
+              rules={[
+                {
+                  validator: checkPassword,
+                },
+              ]}
             >
-              <span>注册</span>
-            </Button>
-            <Link to="/user/login">
-              <span>使用已有账户登录</span>
-            </Link>
-          </div>
-        </FormItem>
-      </Form>
+              <Input
+                size="large"
+                type="password"
+                placeholder="至少8位密码，区分大小写"
+              />
+            </FormItem>
+          </Popover>
+          <FormItem
+            name="checkPassword"
+            rules={[
+              {
+                required: true,
+                message: '确认密码',
+              },
+              {
+                validator: checkConfirm,
+              },
+            ]}
+          >
+            <Input size="large" type="password" placeholder="确认密码" />
+          </FormItem>
+          <FormItem>
+            <div className={styles.footer}>
+              <Button
+                size="large"
+                loading={submitting}
+                className={styles.submit}
+                type="primary"
+                htmlType="submit"
+              >
+                <span>注册</span>
+              </Button>
+              <Link to="/user/login">
+                <span>使用已有账户登录</span>
+              </Link>
+            </div>
+          </FormItem>
+        </Form>
+      </div>
       <Footer />
     </div>
   );

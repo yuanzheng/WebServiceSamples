@@ -84,6 +84,7 @@ public class UserServiceImpl extends ServiceImpl<UserMapper, User> implements Us
 
     @Override
     public User userLogin(String userAccount, String userPassword, HttpServletRequest request) {
+        log.info("login user: " + userAccount);
         // 1. 校验
         if (StringUtils.isAnyBlank(userAccount, userPassword)) {
             return null;

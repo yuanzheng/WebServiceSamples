@@ -26,6 +26,12 @@ export default [
         path: '/user/register',
         component: './user/register',
       },
+      {
+        name: 'register-result',
+        icon: 'smile',
+        path: '/user/register-result',
+        component: './user/register-result',
+      },
     ],
   },
   {
