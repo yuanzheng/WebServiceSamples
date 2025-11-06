@@ -2,6 +2,7 @@ package com.ytechtrade.usercenterbackendspringboot.service;
 
 import com.baomidou.mybatisplus.extension.service.IService;
 import com.ytechtrade.usercenterbackendspringboot.model.domain.User;
+import com.ytechtrade.usercenterbackendspringboot.model.dto.UserDTO;
 
 import javax.servlet.http.HttpServletRequest;
 import java.util.List;
@@ -31,14 +32,14 @@ public interface UserService extends IService<User> {
      * @param request
      * @return
      */
-    User userLogin(String userAccount, String userPassword, HttpServletRequest request);
+    UserDTO userLogin(String userAccount, String userPassword, HttpServletRequest request);
 
     /**
      * Remove all sensitive information from the originUser
      * @param originUser
      * @return
      */
-    User getSafetyUser(User originUser);
+    UserDTO getSafetyUser(User originUser);
 
-    List<User> searchUsers(String username);
+    List<UserDTO> searchUsers(String username);
 }

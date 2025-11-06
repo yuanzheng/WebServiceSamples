@@ -1,6 +1,7 @@
 package com.ytechtrade.usercenterbackendspringboot.controller;
 
 import com.ytechtrade.usercenterbackendspringboot.model.domain.User;
+import com.ytechtrade.usercenterbackendspringboot.model.dto.UserDTO;
 import com.ytechtrade.usercenterbackendspringboot.model.dto.UserLoginRequest;
 import com.ytechtrade.usercenterbackendspringboot.model.dto.UserRegisterRequest;
 import com.ytechtrade.usercenterbackendspringboot.service.UserService;
@@ -58,7 +59,7 @@ public class UserController {
     }
 
     @PostMapping("/login")
-    public User userLogin(@RequestBody UserLoginRequest userLoginRequest, HttpServletRequest request) {
+    public UserDTO userLogin(@RequestBody UserLoginRequest userLoginRequest, HttpServletRequest request) {
         log.info("User login now");
         if (userLoginRequest == null) {
             log.info("Login Request is null");
@@ -73,8 +74,21 @@ public class UserController {
         return userService.userLogin(userAccount, userPassword, request);
     }
 
+    @GetMapping("/currentUser")
+    public UserDTO getCurrentUser(HttpServletRequest request) {
+        Object userObj = request.getSession().getAttribute(USER_LOGIN_STATE);
+        UserDTO currentUser = (UserDTO) userObj;
+        if (currentUser == null) {
+            return null;
+        }
+        long userId = currentUser.getId();
+        // TODO 校验用户是否合法
+        User user = userService.getById(userId);
+        return userService.getSafetyUser(user);
+    }
+
     @GetMapping("/search")
-    public List<User> searchUsers(String username, HttpServletRequest request) {
+    public List<UserDTO> searchUsers(String username, HttpServletRequest request) {
        // 仅管理员可查询
         if (!isAdmin(request)) {
             return new ArrayList<>();
@@ -99,7 +113,7 @@ public class UserController {
     private boolean isAdmin(HttpServletRequest request) {
         // 仅管理员可查询
         Object userObj = request.getSession().getAttribute(USER_LOGIN_STATE);
-        User user = (User) userObj;
+        UserDTO user = (UserDTO) userObj;
         return user != null && user.getUserRole() == ADMIN_ROLE;
     }
 }

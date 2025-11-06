@@ -1,0 +1,1 @@
+Updated user service to get current user info API and refactored to use UserDTO through mdoelmapper convertion

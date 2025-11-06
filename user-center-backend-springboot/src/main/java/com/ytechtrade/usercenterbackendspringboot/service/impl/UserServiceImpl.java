@@ -4,9 +4,12 @@ import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import com.ytechtrade.usercenterbackendspringboot.mapper.UserMapper;
 import com.ytechtrade.usercenterbackendspringboot.model.domain.User;
+import com.ytechtrade.usercenterbackendspringboot.model.dto.UserDTO;
 import com.ytechtrade.usercenterbackendspringboot.service.UserService;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.commons.lang3.StringUtils;
+import org.modelmapper.ModelMapper;
+import org.modelmapper.TypeToken;
 import org.springframework.stereotype.Service;
 import org.springframework.util.DigestUtils;
 
@@ -15,7 +18,6 @@ import javax.servlet.http.HttpServletRequest;
 import java.util.List;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
-import java.util.stream.Collectors;
 
 import static com.ytechtrade.usercenterbackendspringboot.constant.UserConstant.USER_LOGIN_STATE;
 
@@ -25,6 +27,9 @@ public class UserServiceImpl extends ServiceImpl<UserMapper, User> implements Us
 
     @Resource
     private UserMapper userMapper;
+
+    @Resource
+    private ModelMapper modelMapper;
 
     /**
      * For password encryption
@@ -83,7 +88,7 @@ public class UserServiceImpl extends ServiceImpl<UserMapper, User> implements Us
     }
 
     @Override
-    public User userLogin(String userAccount, String userPassword, HttpServletRequest request) {
+    public UserDTO userLogin(String userAccount, String userPassword, HttpServletRequest request) {
         log.info("login user: " + userAccount);
         // 1. 校验
         if (StringUtils.isAnyBlank(userAccount, userPassword)) {
@@ -114,41 +119,31 @@ public class UserServiceImpl extends ServiceImpl<UserMapper, User> implements Us
             return null;
         }
         // 3. 用户脱敏
-        User safetyUser = getSafetyUser(user);
+        UserDTO safetyUser = getSafetyUser(user);
         // 4. 记录用户的登录态
         request.getSession().setAttribute(USER_LOGIN_STATE, safetyUser);
         return safetyUser;
     }
 
     @Override
-    public User getSafetyUser(User originUser) {
+    public UserDTO getSafetyUser(User originUser) {
         if (originUser == null) {
             return null;
         }
-        User safetyUser = new User();
-        safetyUser.setId(originUser.getId());
-        safetyUser.setUserName(originUser.getUserName());
-        safetyUser.setUserAccount(originUser.getUserAccount());
-        safetyUser.setAvatarUrl(originUser.getAvatarUrl());
-        safetyUser.setGender(originUser.getGender());
-        safetyUser.setPhone(originUser.getPhone());
-        safetyUser.setEmail(originUser.getEmail());
-        safetyUser.setUserStatus(originUser.getUserStatus());
-        safetyUser.setCreateTime(originUser.getCreateTime());
-        safetyUser.setUserRole(originUser.getUserRole());
-        return safetyUser;
+        return modelMapper.map(originUser, UserDTO.class);
     }
 
     @Override
-    public List<User> searchUsers(String username) {
+    public List<UserDTO> searchUsers(String username) {
         // 用户名是否有类似的
         QueryWrapper<User> queryWrapper = new QueryWrapper<>();
         if (StringUtils.isNotBlank(username)) {
             queryWrapper.like("user_name", username);
         }
-        List<User> userList = this.list(queryWrapper);
-        return userList.stream().map(user -> getSafetyUser(user)).collect(Collectors.toList());
+        List<User> users = this.list(queryWrapper);
+        List<UserDTO> userDTOS = modelMapper.map(users, new TypeToken<List<UserDTO>>() {}.getType());
 
+        return userDTOS;
     }
 
 }
