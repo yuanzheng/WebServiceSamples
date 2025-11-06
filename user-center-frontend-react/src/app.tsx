@@ -31,10 +31,10 @@ export async function getInitialState(): Promise<{
 }> {
   const fetchUserInfo = async () => {
     try {
-      const msg = await queryCurrentUser({
+      const user = await queryCurrentUser({
         skipErrorHandler: true,
       });
-      return msg.data;
+      return user;
     } catch (_error) {
       history.push(loginPath);
     }
@@ -71,14 +71,14 @@ export const layout: RunTimeLayoutConfig = ({
       <SelectLang key="SelectLang" />,
     ],
     avatarProps: {
-      src: initialState?.currentUser?.avatar,
+      src: initialState?.currentUser?.avatarUrl,
       title: <AvatarName />,
       render: (_, avatarChildren) => (
         <AvatarDropdown>{avatarChildren}</AvatarDropdown>
       ),
     },
     waterMarkProps: {
-      content: initialState?.currentUser?.name,
+      content: initialState?.currentUser?.userAccount,
     },
     footerRender: () => <Footer />,
     onPageChange: () => {
