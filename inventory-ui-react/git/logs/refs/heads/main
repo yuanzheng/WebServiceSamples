@@ -1,0 +1,5 @@
+0000000000000000000000000000000000000000 5c095c8de9f935e2397e33d31aed94d7c2165c58 Yuanzheng (Lucas) Song <song_yuanzheng@hotmail.com> 1762476015 -0700	commit (initial): Init react UI, and install packages
+5c095c8de9f935e2397e33d31aed94d7c2165c58 89cfe1be6b36126b1d9a441172c413439d06e19d Yuanzheng (Lucas) Song <song_yuanzheng@hotmail.com> 1762539968 -0700	commit: Added sidebar component
+89cfe1be6b36126b1d9a441172c413439d06e19d ef5c94791aa3a51622c158380d20629bea879957 Yuanzheng (Lucas) Song <song_yuanzheng@hotmail.com> 1762812320 -0700	commit: Implemented componenets, sidebar and Layout and change pages feature
+ef5c94791aa3a51622c158380d20629bea879957 af9c60f5ded0c5559287b308bc0cd8f6237d6ec7 Yuanzheng (Lucas) Song <song_yuanzheng@hotmail.com> 1762812354 -0700	commit: Implemented Register page and css
+af9c60f5ded0c5559287b308bc0cd8f6237d6ec7 c265831238b7a1c146f6846e2c0e0a97d6ec5a82 Yuanzheng (Lucas) Song <song_yuanzheng@hotmail.com> 1762821329 -0700	commit: Implemented login page
