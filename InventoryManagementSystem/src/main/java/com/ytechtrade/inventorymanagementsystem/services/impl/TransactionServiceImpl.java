@@ -87,6 +87,8 @@ public class TransactionServiceImpl implements TransactionService {
     public Response sell(TransactionRequest transactionRequest) {
         Long productId = transactionRequest.getProductId();
         Integer quantity = transactionRequest.getQuantity();
+        String description = transactionRequest.getDescription();
+        String note = transactionRequest.getNote();
 
         Product product = productRepository.findById(productId)
                 .orElseThrow(() -> new NotFoundException("Product Not Found"));

@@ -1,1 +1,1 @@
-Refactor transaction filter class to remove the duplicated join the same table, and add properties to print SQL in the log
+Fixed bug of missing data in the transaction

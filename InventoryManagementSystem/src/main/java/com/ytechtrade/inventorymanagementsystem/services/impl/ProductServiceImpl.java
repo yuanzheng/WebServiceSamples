@@ -33,7 +33,7 @@ public class ProductServiceImpl implements ProductService {
     private static final String IMAGE_DIRECTORY = System.getProperty("user.dir") + "/product-images/";
 
     //AFTER YOUR FRONTEND IS SETUP CHANGE THE IMAGE DIRECTORY TO YHE FRONTEND YOU ARE USING
-    private static final String IMAGE_DIRECTORY_2 = "/Users/master/projects/WebServiceSamples/InventoryManagementSystem/public/products/";
+    private static final String IMAGE_DIRECTORY_2 = "/Users/master/projects/WebServiceSamples/inventory-ui-react/public/products/";
 
     @Override
     public Response saveProduct(ProductDTO productDTO, MultipartFile imageFile) {
@@ -52,8 +52,8 @@ public class ProductServiceImpl implements ProductService {
 
         if (imageFile != null && !imageFile.isEmpty()) {
             log.info("Image file exist");
-              String imagePath = saveImage(imageFile); //use this when you haven't setup your frontend
-            // String imagePath = saveImage2(imageFile); //use this when you ave set up your frontend locally but haven't deployed to produiction
+            // String imagePath = saveImage(imageFile); //use this when you haven't setup your frontend
+            String imagePath = saveImage2(imageFile); //use this when you ave set up your frontend locally but haven't deployed to produiction
 
             log.info("IMAGE URL IS: " + imagePath);
             // TODO Exception
