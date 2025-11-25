@@ -3,3 +3,18 @@
 89cfe1be6b36126b1d9a441172c413439d06e19d ef5c94791aa3a51622c158380d20629bea879957 Yuanzheng (Lucas) Song <song_yuanzheng@hotmail.com> 1762812320 -0700	commit: Implemented componenets, sidebar and Layout and change pages feature
 ef5c94791aa3a51622c158380d20629bea879957 af9c60f5ded0c5559287b308bc0cd8f6237d6ec7 Yuanzheng (Lucas) Song <song_yuanzheng@hotmail.com> 1762812354 -0700	commit: Implemented Register page and css
 af9c60f5ded0c5559287b308bc0cd8f6237d6ec7 c265831238b7a1c146f6846e2c0e0a97d6ec5a82 Yuanzheng (Lucas) Song <song_yuanzheng@hotmail.com> 1762821329 -0700	commit: Implemented login page
+c265831238b7a1c146f6846e2c0e0a97d6ec5a82 710e32d85da7895dad6bb23360bb40914fae26b1 Yuanzheng (Lucas) Song <song_yuanzheng@hotmail.com> 1762974262 -0700	commit: Display sidebar in the layout correctly
+710e32d85da7895dad6bb23360bb40914fae26b1 e73630725642591a1508d0216770b5732566212e Yuanzheng (Lucas) Song <song_yuanzheng@hotmail.com> 1762974926 -0700	commit: Implemented category page
+e73630725642591a1508d0216770b5732566212e 9c7019680ad2f3ecb1a56204cce8fc63128507b7 Yuanzheng (Lucas) Song <song_yuanzheng@hotmail.com> 1763056418 -0700	commit: Implemented Supplier page
+9c7019680ad2f3ecb1a56204cce8fc63128507b7 065cd38faac14ed846737e529afce3affe31ec20 Yuanzheng (Lucas) Song <song_yuanzheng@hotmail.com> 1763062414 -0700	commit: Added the Add&Edit page and functions
+065cd38faac14ed846737e529afce3affe31ec20 5a2a020ba2cab358ee2e5a00b70f5a3153ba8767 Yuanzheng (Lucas) Song <song_yuanzheng@hotmail.com> 1763070688 -0700	commit: Implemented Product page
+5a2a020ba2cab358ee2e5a00b70f5a3153ba8767 356fa31f2470a13d89af8497808e32ba703e0b3a Yuanzheng (Lucas) Song <song_yuanzheng@hotmail.com> 1763071644 -0700	commit (amend): Implemented Product page
+356fa31f2470a13d89af8497808e32ba703e0b3a 83dc7fcca8e8750a396f6b072d1b3709f145f685 Yuanzheng (Lucas) Song <song_yuanzheng@hotmail.com> 1763254146 -0700	commit: Implemented Add product UI
+83dc7fcca8e8750a396f6b072d1b3709f145f685 d720f176d714d6fecc67ec1753276958d54c81ec Yuanzheng (Lucas) Song <song_yuanzheng@hotmail.com> 1763425313 -0700	commit: Implemented purchage page
+d720f176d714d6fecc67ec1753276958d54c81ec d631e5c686db7f0db1d29202b3900a08169dc9a6 Yuanzheng (Lucas) Song <song_yuanzheng@hotmail.com> 1763427225 -0700	commit: Implemented Sell page
+d631e5c686db7f0db1d29202b3900a08169dc9a6 ae89c72397ef251627985d87ea5d5845bc1cd40d Yuanzheng (Lucas) Song <song_yuanzheng@hotmail.com> 1763657833 -0500	commit: Updated message css
+ae89c72397ef251627985d87ea5d5845bc1cd40d fa7e9d8631dda48b13ee6a0f4eb941f555fea4c9 Yuanzheng (Lucas) Song <song_yuanzheng@hotmail.com> 1763687148 -0500	commit: Implemented Transaction page and features
+fa7e9d8631dda48b13ee6a0f4eb941f555fea4c9 605be3fb005ff4dfe2b5b94106012fc9aa4aca79 Yuanzheng (Lucas) Song <song_yuanzheng@hotmail.com> 1764026115 -0700	commit: Implemented transaction details page
+605be3fb005ff4dfe2b5b94106012fc9aa4aca79 4700b7fcee326f2b83f93af8fe0365ef28e1cd5e Yuanzheng (Lucas) Song <song_yuanzheng@hotmail.com> 1764027245 -0700	commit: Implemented profile page
+4700b7fcee326f2b83f93af8fe0365ef28e1cd5e 2acfd3134f38d76b17ac801c99514047633fafc7 Yuanzheng (Lucas) Song <song_yuanzheng@hotmail.com> 1764047252 -0700	commit: Implemented Dashboard page
+2acfd3134f38d76b17ac801c99514047633fafc7 adc31fa606669aafd3b3cbe2c24c2ba52892adf8 Yuanzheng (Lucas) Song <song_yuanzheng@hotmail.com> 1764048475 -0700	commit: Fixed wildcard url, default page is login
