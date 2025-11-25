@@ -76,6 +76,11 @@ public class ProductServiceImpl implements ProductService {
         Product existingProduct = productRepository.findById(productDTO.getProductId())
                 .orElseThrow(() -> new NotFoundException("Product Not Found"));
 
+        // Check if product is deleted
+        if (existingProduct.getDeleted()) {
+            throw new IllegalStateException("Cannot update a deleted product");
+        }
+
         //check if image is associated with the product to update and upload
         if (imageFile != null && !imageFile.isEmpty()) {
             String imagePath = saveImage(imageFile); //use this when you haven't setup your frontend
@@ -126,7 +131,8 @@ public class ProductServiceImpl implements ProductService {
     @Override
     public Response getAllProducts() {
 
-        List<Product> productList = productRepository.findAll(Sort.by(Sort.Direction.DESC, "id"));
+        // Only fetch non-deleted products
+        List<Product> productList = productRepository.findByDeletedFalse(Sort.by(Sort.Direction.DESC, "id"));
 
         List<ProductDTO> productDTOList = modelMapper.map(productList, new TypeToken<List<ProductDTO>>() {
         }.getType());
@@ -141,7 +147,8 @@ public class ProductServiceImpl implements ProductService {
     @Override
     public Response getProductById(Long id) {
 
-        Product product = productRepository.findById(id)
+        // Only fetch non-deleted product
+        Product product = productRepository.findByIdAndDeletedFalse(id)
                 .orElseThrow(() -> new NotFoundException("Product Not Found"));
 
         return Response.builder()
@@ -154,10 +161,17 @@ public class ProductServiceImpl implements ProductService {
     @Override
     public Response deleteProduct(Long id) {
 
-        productRepository.findById(id)
+        Product product = productRepository.findById(id)
                 .orElseThrow(() -> new NotFoundException("Product Not Found"));
 
-        productRepository.deleteById(id);
+        // Check if product is already deleted
+        if (product.getDeleted()) {
+            throw new IllegalStateException("Product is already deleted");
+        }
+
+        // Soft delete: mark as deleted instead of removing from database
+        product.setDeleted(true);
+        productRepository.save(product);
 
         return Response.builder()
                 .status(200)
@@ -168,7 +182,8 @@ public class ProductServiceImpl implements ProductService {
     @Override
     public Response searchProduct(String input) {
 
-        List<Product> products = productRepository.findByNameContainingOrDescriptionContaining(input, input);
+        // Only search non-deleted products
+        List<Product> products = productRepository.findByDeletedFalseAndNameContainingOrDeletedFalseAndDescriptionContaining(input, input);
 
         if (products.isEmpty()) {
             throw new NotFoundException("Product Not Found");

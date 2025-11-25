@@ -1,1 +1,1 @@
-Fixed bug of missing data in the transaction
+Fixed delete product failed issue, by using deleted column in product table to mark product status

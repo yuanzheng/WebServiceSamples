@@ -41,6 +41,9 @@ public class Product {
     private LocalDateTime expiryDate;
     private String imageUrl;
 
+    @Column(nullable = false)
+    private Boolean deleted = false;
+
     private final LocalDateTime createdAt = LocalDateTime.now();
 
     @ManyToOne
