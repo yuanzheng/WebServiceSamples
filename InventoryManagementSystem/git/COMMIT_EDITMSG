@@ -1,1 +1,1 @@
-Fixed delete product failed issue, by using deleted column in product table to mark product status
+Added prod profile for AWS deployment

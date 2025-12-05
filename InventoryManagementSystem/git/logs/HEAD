@@ -32,3 +32,4 @@ cfc344720abc1ac3901e7101e0ceb16621dbe11f 960a1a962f589b55bd46b5515a9b50b60d615f7
 960a1a962f589b55bd46b5515a9b50b60d615f70 303ad64675cb0a4d4163543bf6d981bba665dab3 Yuanzheng (Lucas) Song <song_yuanzheng@hotmail.com> 1763658158 -0500	commit: Updated Product service since UI has been created
 303ad64675cb0a4d4163543bf6d981bba665dab3 7de04a53722e353d249eb7a1fb454de388a4280b Yuanzheng (Lucas) Song <song_yuanzheng@hotmail.com> 1763658204 -0500	commit: Fixed bug of missing data in the transaction
 7de04a53722e353d249eb7a1fb454de388a4280b 4b7df02d917396aa7f6bd39760a1931daad78c72 Yuanzheng (Lucas) Song <song_yuanzheng@hotmail.com> 1764051121 -0700	commit: Fixed delete product failed issue, by using deleted column in product table to mark product status
+4b7df02d917396aa7f6bd39760a1931daad78c72 5844c8b842c34fe154829b1e74855bd6d696cec0 Yuanzheng (Lucas) Song <song_yuanzheng@hotmail.com> 1764720578 -0700	commit: Added prod profile for AWS deployment
