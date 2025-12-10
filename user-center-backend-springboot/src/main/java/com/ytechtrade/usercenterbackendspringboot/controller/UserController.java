@@ -104,6 +104,11 @@ public class UserController {
         return userService.removeById(id);
     }
 
+    @GetMapping("/hello")
+    public String hello() {
+        return "hello world";
+    }
+
     /**
      * 是否为管理员
      *

@@ -14,3 +14,4 @@ f6e3658f4888f96cb08173ca936cea701759b4cc c38a1e38e6d4bcee211e549b1a1980f62f7977e
 c38a1e38e6d4bcee211e549b1a1980f62f7977e1 9f73c84fbd58f02f9065456a35e57261011e286c Yuanzheng (Lucas) Song <song_yuanzheng@hotmail.com> 1765326507 -0700	commit: updated pom to support maven build with different jdk version
 9f73c84fbd58f02f9065456a35e57261011e286c be65a23c03eb98a99400582bf6881bacfb1303ff Yuanzheng (Lucas) Song <song_yuanzheng@hotmail.com> 1765326543 -0700	commit: Record database setup sql schema
 be65a23c03eb98a99400582bf6881bacfb1303ff a55c91936fec5ce1137ffc6d7797b1fd8b576f77 Yuanzheng (Lucas) Song <song_yuanzheng@hotmail.com> 1765347139 -0700	commit: Added application dev for test
+a55c91936fec5ce1137ffc6d7797b1fd8b576f77 2144766d5531fa5bcdaf378159f2c6bb48f0b11b Yuanzheng (Lucas) Song <song_yuanzheng@hotmail.com> 1765350620 -0700	commit: Added hello api for testing
