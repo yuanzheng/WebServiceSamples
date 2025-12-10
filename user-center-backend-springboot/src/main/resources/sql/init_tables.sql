@@ -14,6 +14,7 @@ CREATE TABLE `user`
     create_time DATETIME DEFAULT CURRENT_TIMESTAMP NULL COMMENT 'Current time',
     update_time DATETIME DEFAULT CURRENT_TIMESTAMP NULL ON UPDATE CURRENT_TIMESTAMP COMMENT 'Time to update the user',
     is_delete TINYINT DEFAULT 0 NOT NULL COMMENT 'If it is required to delete',
+    role INT DEFAULT 0 NOT NULL COMMENT  '0 normal user, 1 admin',
     PRIMARY KEY (id),
     CONSTRAINT `uk_user_account` UNIQUE (`user_account`),
     CONSTRAINT `uk_phone` UNIQUE (`phone`),
