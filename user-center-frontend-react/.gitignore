@@ -20,7 +20,7 @@ yarn.lock
 package-lock.json
 *bak
 .vscode
-
+pnpm-lock.yaml
 
 # visual studio code
 .history
@@ -36,5 +36,6 @@ functions/*
 # screenshot
 screenshot
 .firebase
+.eslintcache
 
 build

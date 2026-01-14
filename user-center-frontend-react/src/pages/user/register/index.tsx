@@ -14,7 +14,6 @@ import {
 import type { Store } from 'antd/es/form/interface';
 import React, { FC } from 'react';
 import { useEffect, useState } from 'react';
-import type { StateType } from './service';
 import { register } from './service';
 import useStyles from './styles';
 import {Helmet, SelectLang, useIntl} from "@@/exports";
@@ -102,11 +101,11 @@ const Register: FC = () => {
     return 'poor';
   };
   const { loading: submitting, run: userRegister } = useRequest<{
-    data: StateType;
+    data: number;
   }>(register, {
     manual: true,
     onSuccess: (data, params) => {
-      if (data.status === 'ok') {
+      if (data > 0) {
         message.success('注册成功！');
         history.push({
           pathname: `/user/register-result?account=${params[0].userAccount}`,

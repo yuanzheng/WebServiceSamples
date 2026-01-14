@@ -1,9 +1,4 @@
-import { request } from '@umijs/max';
-
-export interface StateType {
-  status?: 'ok' | 'error';
-  currentAuthority?: 'user' | 'admin';
-}
+import request  from '@/plugins/globalRequest';
 
 export interface UserRegisterParams {
   userAccount: string;

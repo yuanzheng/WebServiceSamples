@@ -1,0 +1,7 @@
+0000000000000000000000000000000000000000 ee6edfc3f2c602f10d05585e731131f3050b73fd Yuanzheng (Lucas) Song <song_yuanzheng@hotmail.com> 1765327345 -0700	commit (initial): Init user center frontend with react, and implemented register and login features
+ee6edfc3f2c602f10d05585e731131f3050b73fd dd8e916c146d8b4c8994e0a0cc3d9f6352c29ec9 Yuanzheng (Lucas) Song <song_yuanzheng@hotmail.com> 1765829669 -0700	commit: Updated proxy and package.json to add local test
+dd8e916c146d8b4c8994e0a0cc3d9f6352c29ec9 0cec64f737ea1542ca1ad4b86306aecc9f414ecc Yuanzheng (Lucas) Song <song_yuanzheng@hotmail.com> 1765829772 -0700	commit: Updated admin page to list all users
+0cec64f737ea1542ca1ad4b86306aecc9f414ecc 7e03a2cfee9cceaaa5f6578c951dfeec3dd725ce Yuanzheng (Lucas) Song <song_yuanzheng@hotmail.com> 1765832974 -0700	commit: Added logout users feature
+7e03a2cfee9cceaaa5f6578c951dfeec3dd725ce fb80510ebd5de19f8d8d60f73159450ff817e5f1 Yuanzheng (Lucas) Song <song_yuanzheng@hotmail.com> 1768085250 -0700	commit: Updated backend exception response, to handle BusinessException
+fb80510ebd5de19f8d8d60f73159450ff817e5f1 78f82d5dd63fb1dede1d819ebd920d70c8b1a1be Yuanzheng (Lucas) Song <song_yuanzheng@hotmail.com> 1768085344 -0700	commit: Updated register api to handle ResponseEntity from backend
+78f82d5dd63fb1dede1d819ebd920d70c8b1a1be ef229914f246ff52a79181ac6d7e90bf9b9565cf Yuanzheng (Lucas) Song <song_yuanzheng@hotmail.com> 1768412143 -0700	commit: Added request.interceptors to get register response

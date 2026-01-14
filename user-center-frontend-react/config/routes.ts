@@ -45,15 +45,21 @@ export default [
     name: 'admin',
     icon: 'crown',
     access: 'canAdmin',
+    component: '@/pages/Admin',
     routes: [
       {
         path: '/admin',
-        redirect: '/admin/sub-page',
+        redirect: '/admin/user-management',
+      },
+      {
+        path: '/admin/user-management',
+        name: 'Administration',
+        component: './Admin/user-management',
       },
       {
         path: '/admin/sub-page',
         name: 'sub-page',
-        component: './Admin',
+        component: './Welcome',
       },
     ],
   },

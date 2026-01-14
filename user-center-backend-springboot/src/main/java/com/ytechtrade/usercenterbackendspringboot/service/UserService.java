@@ -42,4 +42,12 @@ public interface UserService extends IService<User> {
     UserDTO getSafetyUser(User originUser);
 
     List<UserDTO> searchUsers(String username);
+
+    /**
+     * User logout
+     *
+     * @param request
+     * @return
+     */
+    void userLogout(HttpServletRequest request);
 }

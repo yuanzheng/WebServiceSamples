@@ -2,6 +2,8 @@ package com.ytechtrade.usercenterbackendspringboot.service.impl;
 
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
+import com.ytechtrade.usercenterbackendspringboot.exception.BusinessException;
+import com.ytechtrade.usercenterbackendspringboot.exception.ErrorCode;
 import com.ytechtrade.usercenterbackendspringboot.mapper.UserMapper;
 import com.ytechtrade.usercenterbackendspringboot.model.domain.User;
 import com.ytechtrade.usercenterbackendspringboot.model.dto.UserDTO;
@@ -47,31 +49,31 @@ public class UserServiceImpl extends ServiceImpl<UserMapper, User> implements Us
     public long userRegister(String userAccount, String userPassword, String checkPassword) {
         // 1. 校验
         if (StringUtils.isAnyBlank(userAccount, userPassword, checkPassword)) {
-            return -1;
+            throw new BusinessException(ErrorCode.PARAMS_ERROR, "Please check if one of following is missing: user Account, user Password and check Password");
         }
         if (userAccount.length() < 4) {
-            return -1;
+            throw new BusinessException(ErrorCode.PARAMS_ERROR, "用户账号过短");
         }
         if (userPassword.length() < 8 || checkPassword.length() < 8) {
-            return -1;
+            throw new BusinessException(ErrorCode.PARAMS_ERROR, "用户密码过短");
         }
 
         // 账户不能包含特殊字符
         String validPattern = "[`~!@#$%^&*()+=|{}':;',\\\\[\\\\].<>/?~！@#￥%……&*（）——+|{}【】‘；：”“’。，、？]";
         Matcher matcher = Pattern.compile(validPattern).matcher(userAccount);
         if (matcher.find()) {
-            return -1;
+            throw new BusinessException(ErrorCode.PARAMS_ERROR, "Duplicated user account");
         }
         // 密码和校验密码相同
         if (!userPassword.equals(checkPassword)) {
-            return -1;
+            throw new BusinessException(ErrorCode.PARAMS_ERROR, "Check password doesn't match to user password");
         }
         // 账户不能重复
         QueryWrapper<User> queryWrapper = new QueryWrapper<>();
         queryWrapper.eq("user_account", userAccount);
         long count = userMapper.selectCount(queryWrapper);
         if (count > 0) {
-            return -1;
+            throw new BusinessException(ErrorCode.PARAMS_ERROR, "账号重复");
         }
 
         // 2. 加密
@@ -82,7 +84,7 @@ public class UserServiceImpl extends ServiceImpl<UserMapper, User> implements Us
         user.setUserPassword(encryptPassword);
         boolean saveResult = this.save(user);
         if (!saveResult) {
-            return -1;
+            throw new BusinessException(ErrorCode.SYSTEM_ERROR, "保存新用户信息据失败");
         }
         return user.getId();
     }
@@ -92,19 +94,19 @@ public class UserServiceImpl extends ServiceImpl<UserMapper, User> implements Us
         log.info("login user: " + userAccount);
         // 1. 校验
         if (StringUtils.isAnyBlank(userAccount, userPassword)) {
-            return null;
+            throw new BusinessException(ErrorCode.PARAMS_ERROR, "user account or user password is null");
         }
         if (userAccount.length() < 4) {
-            return null;
+            throw new BusinessException(ErrorCode.PARAMS_ERROR, "user account is less than 4 characters");
         }
         if (userPassword.length() < 8) {
-            return null;
+            throw new BusinessException(ErrorCode.PARAMS_ERROR, "user password is less than 8 characters");
         }
         // 账户不能包含特殊字符
         String validPattern = "[`~!@#$%^&*()+=|{}':;',\\\\[\\\\].<>/?~！@#￥%……&*（）——+|{}【】‘；：”“’。，、？]";
         Matcher matcher = Pattern.compile(validPattern).matcher(userAccount);
         if (matcher.find()) {
-            return null;
+            throw new BusinessException(ErrorCode.PARAMS_ERROR, "user account includes special characters");
         }
         // 2. 加密
         String encryptPassword = DigestUtils.md5DigestAsHex((SALT + userPassword).getBytes());
@@ -115,8 +117,8 @@ public class UserServiceImpl extends ServiceImpl<UserMapper, User> implements Us
         User user = userMapper.selectOne(queryWrapper);
         // 用户不存在
         if (user == null) {
-            log.info("user login failed, userAccount cannot match userPassword");
-            return null;
+            log.info("user doesn't exist!");
+            throw new BusinessException(ErrorCode.USER_ERROR, "用户不存在");
         }
         // 3. 用户脱敏
         UserDTO safetyUser = getSafetyUser(user);
@@ -144,6 +146,11 @@ public class UserServiceImpl extends ServiceImpl<UserMapper, User> implements Us
         List<UserDTO> userDTOS = modelMapper.map(users, new TypeToken<List<UserDTO>>() {}.getType());
 
         return userDTOS;
+    }
+
+    @Override
+    public void userLogout(HttpServletRequest request) {
+        request.getSession().removeAttribute(USER_LOGIN_STATE);
     }
 
 }

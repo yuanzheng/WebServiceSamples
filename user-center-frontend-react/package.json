@@ -26,6 +26,7 @@
     "start:no-mock": "cross-env MOCK=none max dev",
     "start:pre": "cross-env UMI_ENV=pre MOCK=none max dev",
     "start:test": "cross-env UMI_ENV=test MOCK=none max dev",
+    "start:localtest": "cross-env UMI_ENV=localtest MOCK=none max dev",
     "test": "jest",
     "test:coverage": "npm run jest -- --coverage",
     "test:update": "npm run jest -- -u",

@@ -15,3 +15,7 @@ c38a1e38e6d4bcee211e549b1a1980f62f7977e1 9f73c84fbd58f02f9065456a35e57261011e286
 9f73c84fbd58f02f9065456a35e57261011e286c be65a23c03eb98a99400582bf6881bacfb1303ff Yuanzheng (Lucas) Song <song_yuanzheng@hotmail.com> 1765326543 -0700	commit: Record database setup sql schema
 be65a23c03eb98a99400582bf6881bacfb1303ff a55c91936fec5ce1137ffc6d7797b1fd8b576f77 Yuanzheng (Lucas) Song <song_yuanzheng@hotmail.com> 1765347139 -0700	commit: Added application dev for test
 a55c91936fec5ce1137ffc6d7797b1fd8b576f77 2144766d5531fa5bcdaf378159f2c6bb48f0b11b Yuanzheng (Lucas) Song <song_yuanzheng@hotmail.com> 1765350620 -0700	commit: Added hello api for testing
+2144766d5531fa5bcdaf378159f2c6bb48f0b11b 579423a6fed7d1789239b5077fd25e2402e0f5f1 Yuanzheng (Lucas) Song <song_yuanzheng@hotmail.com> 1765833036 -0700	commit: Added logout users feature
+579423a6fed7d1789239b5077fd25e2402e0f5f1 58b053aad7be2080e4df0cf5c100f450b114ec74 Yuanzheng (Lucas) Song <song_yuanzheng@hotmail.com> 1765950560 -0700	commit: Added Exception handler and GlobalException to avoid UI got sensitive coding info
+58b053aad7be2080e4df0cf5c100f450b114ec74 db0487247c4fe55ba53ac5badc3fb1cb627336dc Yuanzheng (Lucas) Song <song_yuanzheng@hotmail.com> 1767983488 -0700	commit (amend): Added Exception handler and GlobalException to avoid UI got sensitive coding info
+db0487247c4fe55ba53ac5badc3fb1cb627336dc edff55098832cb4a6c9b7484d3c2c3c637211d8f Yuanzheng (Lucas) Song <song_yuanzheng@hotmail.com> 1768412514 -0700	commit: Updated API response format and exception response
