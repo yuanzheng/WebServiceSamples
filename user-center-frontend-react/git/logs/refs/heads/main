@@ -5,3 +5,4 @@ dd8e916c146d8b4c8994e0a0cc3d9f6352c29ec9 0cec64f737ea1542ca1ad4b86306aecc9f414ec
 7e03a2cfee9cceaaa5f6578c951dfeec3dd725ce fb80510ebd5de19f8d8d60f73159450ff817e5f1 Yuanzheng (Lucas) Song <song_yuanzheng@hotmail.com> 1768085250 -0700	commit: Updated backend exception response, to handle BusinessException
 fb80510ebd5de19f8d8d60f73159450ff817e5f1 78f82d5dd63fb1dede1d819ebd920d70c8b1a1be Yuanzheng (Lucas) Song <song_yuanzheng@hotmail.com> 1768085344 -0700	commit: Updated register api to handle ResponseEntity from backend
 78f82d5dd63fb1dede1d819ebd920d70c8b1a1be ef229914f246ff52a79181ac6d7e90bf9b9565cf Yuanzheng (Lucas) Song <song_yuanzheng@hotmail.com> 1768412143 -0700	commit: Added request.interceptors to get register response
+ef229914f246ff52a79181ac6d7e90bf9b9565cf c2679ea19e139b066e3ce189a4f1224aa49cabd0 Yuanzheng (Lucas) Song <song_yuanzheng@hotmail.com> 1769114077 -0700	commit: Updated for production UI

@@ -1,0 +1,8 @@
+spring:
+  # DataSource Config
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://inventory-prod-db.cvogygiweqey.us-east-2.rds.amazonaws.com:3306/user_center
+    username: inventoryadmin
+    password: fese3KAGroot
+

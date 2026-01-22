@@ -1,21 +1,9 @@
 spring:
   application:
     name: user-center-backend-springboot
-
-  # DataSource Config
-  datasource:
-    driver-class-name: com.mysql.cj.jdbc.Driver
-    url: jdbc:mysql://localhost:3306/ytechtrade
-    username: root
-    password: fese3KAG
   # session 失效时间 1day
   session:
     timeout: 86400
-
-server:
-  port: 8080
-  servlet:
-    context-path: /api
 
 mybatis-plus:
   global-config:
