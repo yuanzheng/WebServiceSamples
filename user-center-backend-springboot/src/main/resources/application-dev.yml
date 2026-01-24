@@ -10,3 +10,13 @@ server:
   servlet:
     context-path: /api
   address: 0.0.0.0
+management:
+  endpoints:
+    web:
+      exposure:
+        include: health,info
+  endpoint:
+    health:
+      show-details: never
+      probes:
+        enabled: true

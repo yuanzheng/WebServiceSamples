@@ -21,3 +21,4 @@ a55c91936fec5ce1137ffc6d7797b1fd8b576f77 2144766d5531fa5bcdaf378159f2c6bb48f0b11
 db0487247c4fe55ba53ac5badc3fb1cb627336dc edff55098832cb4a6c9b7484d3c2c3c637211d8f Yuanzheng (Lucas) Song <song_yuanzheng@hotmail.com> 1768412514 -0700	commit: Updated API response format and exception response
 edff55098832cb4a6c9b7484d3c2c3c637211d8f c1495ca85dac7d0e062fe921a0ea69a9e004bb7f Yuanzheng (Lucas) Song <song_yuanzheng@hotmail.com> 1768471115 -0700	commit: Defined prod environment valuables
 c1495ca85dac7d0e062fe921a0ea69a9e004bb7f eba429719d915f385127d62323ab6b90564d46da Yuanzheng (Lucas) Song <song_yuanzheng@hotmail.com> 1769113880 -0700	commit: Changed database access user account for both localtest and dev
+eba429719d915f385127d62323ab6b90564d46da 3d0154c8c3766c05222efd5790b61bbbd56d8190 Yuanzheng (Lucas) Song <song_yuanzheng@hotmail.com> 1769276404 -0700	commit: Actived actuator for health check in Jenkins
