@@ -14,3 +14,4 @@ a4272ae2087f2a81c466af03f496f8854d4ffd5d aa6f5aaa0fc3d0bea9ea934b946bc447afc997a
 aa6f5aaa0fc3d0bea9ea934b946bc447afc997a2 7332970c10d577ad308fcc3a72a8751320edfe5e Yuanzheng (Lucas) Song <song_yuanzheng@hotmail.com> 1771532689 -0700	commit: Added application properties for dev and local deployments
 7332970c10d577ad308fcc3a72a8751320edfe5e afb4893fa81da34e3ea4d34bf4be6fb89037a1e8 Yuanzheng (Lucas) Song <song_yuanzheng@hotmail.com> 1771708978 -0700	commit: Added acturator health check for CICD process
 afb4893fa81da34e3ea4d34bf4be6fb89037a1e8 ce5a4749ac49f4b199b41b4ca276a6ca6b66bcb5 Yuanzheng (Lucas) Song <song_yuanzheng@hotmail.com> 1771709009 -0700	commit: Added unit test for acturator health API
+ce5a4749ac49f4b199b41b4ca276a6ca6b66bcb5 e65b4bde824119b6d08e5904dfa99e639a2ab843 Yuanzheng (Lucas) Song <song_yuanzheng@hotmail.com> 1771716179 -0700	commit: Specified server port for both local and dev
