@@ -1,0 +1,17 @@
+0000000000000000000000000000000000000000 17504a53dafbee9ba90dcb68ae2e455bf312617c Yuanzheng (Lucas) Song <song_yuanzheng@hotmail.com> 1769369676 -0700	commit (initial): Initialized the project
+17504a53dafbee9ba90dcb68ae2e455bf312617c a98b1020e9c356bd6d3e555afe3ad473ec803387 Yuanzheng (Lucas) Song <song_yuanzheng@hotmail.com> 1770184284 -0700	commit: Build Category module, and handle global exceptions
+a98b1020e9c356bd6d3e555afe3ad473ec803387 d971730311394e325d9f90dd544fedd68b5dcd54 Yuanzheng (Lucas) Song <song_yuanzheng@hotmail.com> 1770340365 -0700	commit: Built the Product module, and handling image file
+d971730311394e325d9f90dd544fedd68b5dcd54 31abe3d86cbc6f42f1f3e8dd88a0996d8205f71f Yuanzheng (Lucas) Song <song_yuanzheng@hotmail.com> 1770340678 -0700	commit: Added security dependency for user authentication
+31abe3d86cbc6f42f1f3e8dd88a0996d8205f71f 1527524c0f148221205ab6c5c1db8c36cd333969 Yuanzheng (Lucas) Song <song_yuanzheng@hotmail.com> 1770836903 -0700	commit: Added several entities, Address, product, role and user
+1527524c0f148221205ab6c5c1db8c36cd333969 ca0f216f635369dddf068889e6646264b40a32c5 Yuanzheng (Lucas) Song <song_yuanzheng@hotmail.com> 1770914053 -0700	commit: Implemented Custom Authentication feature
+ca0f216f635369dddf068889e6646264b40a32c5 6014f298b228b70eafbdc1b07836a97e7a5f19a8 Yuanzheng (Lucas) Song <song_yuanzheng@hotmail.com> 1770961213 -0700	commit: Implemented authentication controller
+6014f298b228b70eafbdc1b07836a97e7a5f19a8 293322bde7b1fbedccdbfb15c9b96acbd97ee512 Yuanzheng (Lucas) Song <song_yuanzheng@hotmail.com> 1770961250 -0700	commit (amend): Implemented authentication controller for both signin and signup APIs
+293322bde7b1fbedccdbfb15c9b96acbd97ee512 efa458948a56aedcfcf2270083d567725bdf3b99 Yuanzheng (Lucas) Song <song_yuanzheng@hotmail.com> 1770964858 -0700	commit (amend): Implemented authentication controller for both signin and signup APIs
+efa458948a56aedcfcf2270083d567725bdf3b99 7812d0e34487de6cc6eb4fe87deed04230ccebd4 Yuanzheng (Lucas) Song <song_yuanzheng@hotmail.com> 1770970655 -0700	commit: Updated authentication process by using cookie-based authentication
+7812d0e34487de6cc6eb4fe87deed04230ccebd4 9115659088d0787a046b0aeb4878422f6b95324a Yuanzheng (Lucas) Song <song_yuanzheng@hotmail.com> 1771397678 -0700	commit: Implemented Cart and cartitem, services and rest controller
+9115659088d0787a046b0aeb4878422f6b95324a a4272ae2087f2a81c466af03f496f8854d4ffd5d Yuanzheng (Lucas) Song <song_yuanzheng@hotmail.com> 1771436644 -0700	commit: Setup PostgreSQL connection, and image base URL
+a4272ae2087f2a81c466af03f496f8854d4ffd5d aa6f5aaa0fc3d0bea9ea934b946bc447afc997a2 Yuanzheng (Lucas) Song <song_yuanzheng@hotmail.com> 1771480535 -0700	commit: End to end test, and fixed bugs
+aa6f5aaa0fc3d0bea9ea934b946bc447afc997a2 aa6f5aaa0fc3d0bea9ea934b946bc447afc997a2 Yuanzheng (Lucas) Song <song_yuanzheng@hotmail.com> 1771521125 -0700	reset: moving to HEAD
+aa6f5aaa0fc3d0bea9ea934b946bc447afc997a2 aa6f5aaa0fc3d0bea9ea934b946bc447afc997a2 Yuanzheng (Lucas) Song <song_yuanzheng@hotmail.com> 1771521146 -0700	reset: moving to HEAD
+aa6f5aaa0fc3d0bea9ea934b946bc447afc997a2 7332970c10d577ad308fcc3a72a8751320edfe5e Yuanzheng (Lucas) Song <song_yuanzheng@hotmail.com> 1771532689 -0700	commit: Added application properties for dev and local deployments
+7332970c10d577ad308fcc3a72a8751320edfe5e 7332970c10d577ad308fcc3a72a8751320edfe5e Yuanzheng (Lucas) Song <song_yuanzheng@hotmail.com> 1771532704 -0700	reset: moving to HEAD
