@@ -23,3 +23,4 @@ e65b4bde824119b6d08e5904dfa99e639a2ab843 60eb93643d126d5fef42bc3c8c2aeda29008e8a
 3ee9738214b4be389721cd2441200370629b3c69 a12dfc907e3765c4dd1694597214ed8bc9a0e85c Yuanzheng (Lucas) Song <song_yuanzheng@hotmail.com> 1772097781 -0700	commit: Added production properties file and connect to Amazon RDS
 a12dfc907e3765c4dd1694597214ed8bc9a0e85c 92cc143942d5fa63fb4ebcd9172855eda12e865e Yuanzheng (Lucas) Song <song_yuanzheng@hotmail.com> 1772169855 -0700	commit: UPdated application-prod.properties for AWS deployment
 92cc143942d5fa63fb4ebcd9172855eda12e865e 88c839dc533fef1d67ab6fd436a0aaf5673b3e6f Yuanzheng (Lucas) Song <song_yuanzheng@hotmail.com> 1772266244 -0700	commit: Added Swagger
+88c839dc533fef1d67ab6fd436a0aaf5673b3e6f cc024e10bb766c7cd46b0694c89cb76ec031a85d Yuanzheng (Lucas) Song <song_yuanzheng@hotmail.com> 1773306408 -0600	commit: Added Procfile for production release on AWS Elastic Beanstalk
