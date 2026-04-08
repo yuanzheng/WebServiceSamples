@@ -75,6 +75,7 @@ public class WebSecurityConfig {
                         .requestMatchers("/api/admin/**").hasRole("ADMIN")
                         .requestMatchers("/api/seller/**").hasAnyRole("ADMIN","SELLER")
                         .requestMatchers("/api/public/**").permitAll()
+                        .requestMatchers("/images/**").permitAll()
                         .anyRequest().authenticated());
         http.sessionManagement(session
                 -> session.sessionCreationPolicy(SessionCreationPolicy.STATELESS)
