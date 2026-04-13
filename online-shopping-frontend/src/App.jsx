@@ -1,12 +1,13 @@
+import React, { useState } from 'react'
 import './App.css'
-import {FaBeer} from "react-icons/fa";
+import Products from './components/products/Products'
 
 function App() {
-
+    const [count, setCount] = useState(0);
   return (
-      <h1 className="flex items-center justify-center h-screen bg-gray-800 text-white text-2xl font-bold">
-          Hello world! <FaBeer />
-      </h1>
+      <>
+        <Products />
+      </>
   )
 }
 
