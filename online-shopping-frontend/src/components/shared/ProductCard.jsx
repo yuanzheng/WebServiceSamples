@@ -1,9 +1,8 @@
-import { useState } from "react";
-import { FaShoppingCart } from "react-icons/fa";
+import {useState} from "react";
+import {FaShoppingCart} from "react-icons/fa";
 import ProductViewModal from "./ProductViewModal.jsx";
 import truncateText from "../../utils/truncateText";
-import { useDispatch } from "react-redux";
-import toast from "react-hot-toast";
+import {useDispatch} from "react-redux";
 
 const ProductCard = ({
                          productId,
