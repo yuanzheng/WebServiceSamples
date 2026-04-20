@@ -6,19 +6,24 @@ import Products from "./components/products/Products";
 import Navbar from './components/shared/Navbar'
 import About from "./components/About";
 import Contact from "./components/Contact";
+import {Toaster} from 'react-hot-toast'
 
 function App() {
     const [count, setCount] = useState(0);
   return (
-      <Router>
-          <Navbar />
-          <Routes>
-              <Route path='/' element={ <Home />}/>
-              <Route path='/products' element={ <Products />}/>
-              <Route path='/about' element={ <About />}/>
-              <Route path='/contact' element={ <Contact />}/>
-          </Routes>
-      </Router>
+      <React.Fragment>
+          <Toaster position='top-center'/>
+          <Router>
+              <Navbar />
+              <Routes>
+                  <Route path='/' element={ <Home />}/>
+                  <Route path='/products' element={ <Products />}/>
+                  <Route path='/about' element={ <About />}/>
+                  <Route path='/contact' element={ <Contact />}/>
+              </Routes>
+          </Router>
+          <Toaster position='bottom-center'/>
+      </React.Fragment>
   )
 }
 
