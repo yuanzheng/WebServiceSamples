@@ -4,6 +4,7 @@ import AddressInfo from './AddressInfo';
 import {useDispatch, useSelector} from 'react-redux';
 import toast from 'react-hot-toast';
 import Skeleton from '../shared/Skeleton';
+import {getUserAddresses} from "../../store/actions";
 
 const Checkout = () => {
     const [activeStep, setActiveStep] = useState(0);
@@ -13,7 +14,7 @@ const Checkout = () => {
     const { address, selectedUserCheckoutAddress } = useSelector(
         (state) => state.auth
     )
-    const { paymentMethod } = useSelector((state) => state.payment);
+    //const { paymentMethod } = useSelector((state) => state.payment);
 
     const handleBack = () => {
         setActiveStep((prevStep) => prevStep - 1);
@@ -25,10 +26,10 @@ const Checkout = () => {
             return;
         }
 
-        if(activeStep === 1 && (!selectedUserCheckoutAddress || !paymentMethod)) {
-            toast.error("Please select payment address before proceeding.");
-            return;
-        }
+        // if(activeStep === 1 && (!selectedUserCheckoutAddress || !paymentMethod)) {
+        //     toast.error("Please select payment address before proceeding.");
+        //     return;
+        // }
 
         setActiveStep((prevStep) => prevStep + 1);
     };
